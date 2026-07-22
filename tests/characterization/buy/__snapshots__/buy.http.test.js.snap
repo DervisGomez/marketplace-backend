@@ -1,0 +1,586 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`buy HTTP characterization > 'get' '/api/buy' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/find' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+      "numPages": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/find/buyer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+      "numPages": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/find/product' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+      "numPages": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/gain' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+      "buyCity": [],
+      "user": {
+        "date": 0,
+        "total": 0,
+      },
+      "userCity": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/gain/quantity' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/gain/year' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [
+        {
+          "count": 0,
+          "month": "Julio",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Junio",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Mayo",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Abril",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Marzo",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Febrero",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Enero",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Diciembre",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Noviembre",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Octubre",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Septiembre",
+          "total": 0,
+        },
+        {
+          "count": 0,
+          "month": "Agosto",
+          "total": 0,
+        },
+      ],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/increment' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "_id": "<object-id>",
+      "createdAt": "<date>",
+      "number": 100000000,
+      "status": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/lock' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "noqualifyBuyer": 0,
+      "noqualifySeller": 0,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/lock/list' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buyer": [],
+      "seller": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/message' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/noqualify/buyer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/noqualify/seller' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/number' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": "Compra/Venta no encontrada",
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/purchases' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+      "counts": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/purchases/summary' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/record/buyer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/record/seller' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/report' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "reports": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/reputation/buyer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "messages": [],
+      "numPages": 1,
+      "record": [],
+      "recordName": {
+        "bank": 0,
+        "color": "black",
+        "count": 0,
+        "gain": 8,
+        "highlight": 10,
+        "highlightGain": 10,
+        "id": 1,
+        "max": 0,
+        "money": 0,
+        "name": "Comprador nuevo",
+        "official": 8,
+      },
+      "records": {
+        "category": {
+          "bank": 0,
+          "color": "black",
+          "count": 0,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 1,
+          "max": 0,
+          "money": 0,
+          "name": "Comprador nuevo",
+          "official": 8,
+        },
+        "categoryNext": {
+          "bank": 0,
+          "color": "fuchsia",
+          "count": 2,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 2,
+          "max": 0,
+          "money": 0,
+          "name": "Comprador principiante",
+          "official": 8,
+        },
+        "count": 0,
+        "total": 0,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/reputation/sale' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "messages": [],
+      "numPages": 1,
+      "record": [],
+      "recordName": {
+        "bank": 0,
+        "color": "black",
+        "count": 0,
+        "gain": 8,
+        "highlight": 10,
+        "highlightGain": 10,
+        "id": 1,
+        "max": 0,
+        "money": 0,
+        "name": "Vendedor nuevo",
+        "official": 8,
+      },
+      "records": {
+        "bank": 0,
+        "category": {
+          "bank": 0,
+          "color": "black",
+          "count": 0,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 1,
+          "max": 0,
+          "money": 0,
+          "name": "Vendedor nuevo",
+          "official": 8,
+        },
+        "categoryNext": {
+          "bank": 0,
+          "color": "fuchsia",
+          "count": 2,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 2,
+          "max": 0,
+          "money": 0,
+          "name": "Vendedor principiante",
+          "official": 8,
+        },
+        "count": 0,
+        "total": 0,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/sale' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": [],
+      "counts": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/sale/summary' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'get' '/api/buy/search' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "code": 51108,
+        "codeName": "Location51108",
+        "errmsg": " invalid flag in regex options: -",
+        "name": "MongoError",
+        "ok": 0,
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`buy HTTP characterization > 'post' '/api/buy' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`buy HTTP characterization > 'post' '/api/buy/message' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "_id": "<object-id>",
+      "createdAt": "<date>",
+      "message": "test",
+      "status": 1,
+      "type": "test",
+      "user": "<object-id>",
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`buy HTTP characterization > 'put' '/api/buy/message' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`buy HTTP characterization > 'put' '/api/buy/qualify/buyer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`buy HTTP characterization > 'put' '/api/buy/qualify/seller' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`buy HTTP characterization > 'put' '/api/buy/report' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buy": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

@@ -1,0 +1,129 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`question HTTP characterization > 'delete' '/api/question' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'delete' '/api/question/lock' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'get' '/api/question' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "questions": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'get' '/api/question/client' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "questions": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'get' '/api/question/me' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "questions": [],
+      "questions2": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'get' '/api/question/me/client' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "questions": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'post' '/api/question' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "notification": {
+        "_id": "<object-id>",
+        "createdAt": "<date>",
+        "description": "<object-id>",
+        "status": 1,
+        "title": "Tienes una nueva pregunta",
+        "type": "question",
+        "user": "<object-id>",
+      },
+      "question": {
+        "_id": "<object-id>",
+        "client": "<object-id>",
+        "createdAt": "<date>",
+        "product": "<object-id>",
+        "question": "<object-id>",
+        "status": 1,
+        "user": "<object-id>",
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`question HTTP characterization > 'post' '/api/question/answer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

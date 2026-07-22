@@ -1,0 +1,52 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`notification HTTP characterization > 'get' '/api/notification' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "counts": 0,
+      "notification": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`notification HTTP characterization > 'put' '/api/notification' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "notification": {
+        "n": 0,
+        "nModified": 0,
+        "ok": 1,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`notification HTTP characterization > 'put' '/api/notification/find' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "notification": {
+        "n": 0,
+        "nModified": 0,
+        "ok": 1,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

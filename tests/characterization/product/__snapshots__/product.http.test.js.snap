@@ -1,0 +1,428 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`product HTTP characterization > 'delete' '/api/product/favorite' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "n": 0,
+      "nModified": 0,
+      "ok": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "counts": [],
+      "numPages": 1,
+      "product": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/category' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/favorite' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "product": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/filter' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "code": 27,
+        "codeName": "IndexNotFound",
+        "errmsg": "text index required for $text query (no such collection 'characterization.products')",
+        "name": "MongoError",
+        "ok": 0,
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/find' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "product": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/increment' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "_id": "<object-id>",
+      "createdAt": "<date>",
+      "number": 100000000,
+      "status": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/keywords' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "code": 2,
+        "codeName": "BadValue",
+        "errmsg": "$regex has to be a string",
+        "name": "MongoError",
+        "ok": 0,
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/last' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "product": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/number' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": "Product no encontrada",
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/operations' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "product": [
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Julio",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Junio",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Mayo",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Abril",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Marzo",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Febrero",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Enero",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Diciembre",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Noviembre",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Octubre",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Septiembre",
+          "normal": 0,
+        },
+        {
+          "active": 0,
+          "highlight": 0,
+          "month": "Agosto",
+          "normal": 0,
+        },
+      ],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/outstanding' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "product": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/query' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/query-find' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/search' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "code": 27,
+        "codeName": "IndexNotFound",
+        "errmsg": "text index required for $text query (no such collection 'characterization.products')",
+        "name": "MongoError",
+        "ok": 0,
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/sold' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "product": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/subcategory' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "product": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'get' '/api/product/user' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "product": [],
+      "user": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'post' '/api/product' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'post' '/api/product/favorite' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "n": 0,
+      "nModified": 0,
+      "ok": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'put' '/api/product' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`product HTTP characterization > 'put' '/api/product/pause' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "product": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`product HTTP characterization > 'put' '/api/product/start' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;

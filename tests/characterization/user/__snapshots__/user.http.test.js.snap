@@ -1,0 +1,479 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`user HTTP characterization > 'get' '/api/user/active' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "users": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/birthdate' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "user": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/increment' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "_id": "<object-id>",
+      "createdAt": "<date>",
+      "number": 100000000,
+      "status": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/link-invitation' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      "Link de invitación invalido",
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/me' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/new' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "users": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/operations' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "active": 0,
+      "buyer": [],
+      "publication": {},
+      "seller": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/operations/buyer' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buyer": [],
+      "numPages": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/operations/seller' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "seller": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/record' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/record/info' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "buyer": [],
+      "seller": [],
+      "user": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/record2' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "n": 0,
+      "nModified": 0,
+      "ok": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'get' '/api/user/referred' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "egress": [],
+      "entry": [],
+      "referred": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/code-register' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      "Ha ocurrido un erro en el servidor",
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/code-resend/phone' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/login' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      "Usuario o teléfono Invalido",
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/new-password' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+    "token": "<token>",
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/new-password/email' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      "Tiempo expirado2",
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/recover-password/email' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      "Celular no registrado",
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/recover-password/phone' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      "Celular no registrado",
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/recovery-code/phone' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/register' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'post' '/api/user/resend-code' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/document' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/email' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/identification' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/location' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/name' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/new-email' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/new-phone' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/password' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/phone' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {},
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/photo' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`user HTTP characterization > 'put' '/api/user/username' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;

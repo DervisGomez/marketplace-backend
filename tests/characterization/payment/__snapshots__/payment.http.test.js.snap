@@ -1,0 +1,224 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`payment HTTP characterization > 'get' '/api/buy/availability' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "money": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'get' '/api/buy/available' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "account": [],
+      "money": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'get' '/api/buy/balance' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "egress": 0,
+      "entry": 0,
+      "money": [],
+      "noqualifyBuyer": 0,
+      "noqualifySeller": 0,
+      "purchase": [],
+      "qualifyBuyer": 0,
+      "qualifySeller": 0,
+      "questionPurchase": 0,
+      "questionSales": 0,
+      "record": {
+        "bank": 0,
+        "category": {
+          "bank": 0,
+          "color": "black",
+          "count": 0,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 1,
+          "max": 0,
+          "money": 0,
+          "name": "Vendedor nuevo",
+          "official": 8,
+        },
+        "categoryNext": {
+          "bank": 0,
+          "color": "fuchsia",
+          "count": 2,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 2,
+          "max": 0,
+          "money": 0,
+          "name": "Vendedor principiante",
+          "official": 8,
+        },
+        "count": 0,
+        "total": 0,
+      },
+      "recordBuyer": {
+        "category": {
+          "bank": 0,
+          "color": "black",
+          "count": 0,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 1,
+          "max": 0,
+          "money": 0,
+          "name": "Comprador nuevo",
+          "official": 8,
+        },
+        "categoryNext": {
+          "bank": 0,
+          "color": "fuchsia",
+          "count": 2,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 2,
+          "max": 0,
+          "money": 0,
+          "name": "Comprador principiante",
+          "official": 8,
+        },
+        "count": 0,
+        "total": 0,
+      },
+      "sales": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'get' '/api/buy/payment' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "payment": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'get' '/api/buy/payment/executed' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "numPages": 1,
+      "payment": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'get' '/api/buy/payment/pendings' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "banks": [],
+      "payment": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'get' '/api/buy/withdrawals' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "banks": [],
+      "payment": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'post' '/api/buy/payment/process' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "payment": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`payment HTTP characterization > 'post' '/api/buy/withdrawals' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "_message": "payment validation failed",
+        "errors": {
+          "amount": {
+            "kind": "Number",
+            "message": "Cast to Number failed for value "NaN" at path "amount"",
+            "name": "CastError",
+            "path": "amount",
+            "reason": {
+              "kind": "number",
+              "message": "Cast to number failed for value "NaN" at path "amount"",
+              "name": "CastError",
+              "path": "amount",
+              "stringValue": ""NaN"",
+              "value": null,
+            },
+            "stringValue": ""NaN"",
+            "value": null,
+          },
+        },
+        "message": "payment validation failed: amount: Cast to Number failed for value "NaN" at path "amount"",
+        "name": "ValidationError",
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
