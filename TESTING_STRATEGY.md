@@ -116,9 +116,9 @@ La cobertura refleja que cada endpoint fue invocado, pero no pretende afirmar qu
 
 ## CI
 
-`.github/workflows/characterization-tests.yml` ejecuta `npm ci` y `npm test` con Node 20 y MongoDB 7.0.14 en cada push y pull request.
+`.github/workflows/characterization-tests.yml` ejecuta `npm ci` y `npm test` con Node 22.13.1 y MongoDB 7.0.14 en cada push y pull request.
 
-Node 20 es necesario para la versión de Vitest utilizada. La declaración histórica `engines.node: 12.18.0` pertenece al runtime legacy y no fue modificada.
+El baseline oficial es Node 22 LTS, expresado en `engines.node` como `>=22.13.0 <23`. Vitest, Supertest y MongoMemoryServer se ejecutan bajo ese mismo runtime.
 
 ## Buenas prácticas
 
