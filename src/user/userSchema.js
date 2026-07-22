@@ -1,0 +1,33 @@
+let mongoose = require('mongoose'),
+Schema = mongoose.Schema;
+const UserSchema = new Schema({
+    userName: { type: String, unique: true, required: [true, 'Usuario es obligatorio.'] },
+    number: { type: Number },
+    name: { type: String, required: [true, 'Nombre es obligatorio.'] },
+    lastName: { type: String, required: [true, 'Apellido es obligatorio.'] },
+    phone: { type: String, unique: true, required: [true, 'Celular es obligatorio.'] },
+    photo: { type: String },
+    birthdate: { type: Date, required: [true, 'Fecha de nacimiento es obligatorio.'] },
+    month: Number,
+    day: Number,
+    photoDocument: { type: String },
+    photoDocumentSend: { type: Number, default : 0 },
+    securityQuestions: { type: Number, default : 0 },
+    password: { type: String, required: [true, 'Contraseña es obligatorio.'] },
+    identification: { type: String,required: [true, 'Cedula es obligatorio'] },
+    email: { type: String, uniqe:true, required: [true, 'Correo es obligatorio'] },
+    department: { type: String, required: [true,'Departamento es obligatorio'] },
+    city: { type: String, required: [true,'Ciudad es obligatorio'] },
+    referred: { type: Schema.Types.ObjectId, ref:'user' },
+    balanceReferred: { type: Number, default: 0},
+    linkInvitation: { type: String, unique: true, required: [true, 'Link de invitación es obligatorio.'] },
+    passwordFailures: { type: Number, default : 0 },
+    complaints: { type: Array},
+    modify:{ type: Array },
+    role: { type: String, default: 'user'},
+    status: { type: Number, default : 2 },
+    record: { type: Number, default:0 },
+    recordBuyer: { type: Number, default:0 },
+    createdAt: { type: Date, default: Date.now }
+});
+module.exports = mongoose.model('user',UserSchema);
