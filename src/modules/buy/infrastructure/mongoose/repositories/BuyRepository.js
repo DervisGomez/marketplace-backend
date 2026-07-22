@@ -1,10 +1,6 @@
 const BuyModel = require('../../../../../buy/buySchema');
+const BaseMongoRepository = require('../../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => new BuyModel(data),
-    aggregate: (...args) => BuyModel.aggregate(...args),
-    countDocuments: (...args) => BuyModel.countDocuments(...args),
-    find: (...args) => BuyModel.find(...args),
-    findById: (...args) => BuyModel.findById(...args),
-    findByIdAndUpdate: (...args) => BuyModel.findByIdAndUpdate(...args)
-};
+module.exports = BaseMongoRepository.create(BuyModel, [
+    'create', 'aggregate', 'countDocuments', 'find', 'findById', 'findByIdAndUpdate'
+]);

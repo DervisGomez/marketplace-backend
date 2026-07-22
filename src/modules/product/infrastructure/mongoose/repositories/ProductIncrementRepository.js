@@ -1,6 +1,4 @@
 const IncrementModel = require('../../../../../product/incrementShema');
+const BaseMongoRepository = require('../../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => new IncrementModel(data),
-    findOneAndUpdate: (...args) => IncrementModel.findOneAndUpdate(...args)
-};
+module.exports = BaseMongoRepository.create(IncrementModel, ['create', 'findOneAndUpdate']);

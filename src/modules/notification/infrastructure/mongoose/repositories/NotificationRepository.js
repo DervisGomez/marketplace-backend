@@ -1,7 +1,4 @@
 const NotificationModel = require('../../../../../notification/notificationSchema');
+const BaseMongoRepository = require('../../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    aggregate: (...args) => NotificationModel.aggregate(...args),
-    find: (...args) => NotificationModel.find(...args),
-    update: (...args) => NotificationModel.update(...args)
-};
+module.exports = BaseMongoRepository.create(NotificationModel, ['aggregate', 'find', 'update']);

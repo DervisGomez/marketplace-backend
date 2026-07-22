@@ -1,10 +1,6 @@
 const PaymentModel = require('../../../../../buy/paymentSchema');
+const BaseMongoRepository = require('../../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => new PaymentModel(data),
-    aggregate: (...args) => PaymentModel.aggregate(...args),
-    countDocuments: (...args) => PaymentModel.countDocuments(...args),
-    find: (...args) => PaymentModel.find(...args),
-    findByIdAndUpdate: (...args) => PaymentModel.findByIdAndUpdate(...args),
-    update: (...args) => PaymentModel.update(...args)
-};
+module.exports = BaseMongoRepository.create(PaymentModel, [
+    'create', 'aggregate', 'countDocuments', 'find', 'findByIdAndUpdate', 'update'
+]);

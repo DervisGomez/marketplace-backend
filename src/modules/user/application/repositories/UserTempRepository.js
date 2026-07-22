@@ -1,8 +1,6 @@
 const UserTempModel = require('../../../../user/userTempSchema');
+const BaseMongoRepository = require('../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => new UserTempModel(data),
-    deleteOne: (...args) => UserTempModel.deleteOne(...args),
-    findById: (...args) => UserTempModel.findById(...args),
-    findByIdAndUpdate: (...args) => UserTempModel.findByIdAndUpdate(...args)
-};
+module.exports = BaseMongoRepository.create(UserTempModel, [
+    'create', 'deleteOne', 'findById', 'findByIdAndUpdate'
+]);

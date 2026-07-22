@@ -1,7 +1,8 @@
 const MessageModel = require('../../../../../buy/messageSchema');
+const BaseMongoRepository = require('../../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => MessageModel(data),
-    find: (...args) => MessageModel.find(...args),
-    findByIdAndUpdate: (...args) => MessageModel.findByIdAndUpdate(...args)
-};
+module.exports = BaseMongoRepository.create(
+    MessageModel,
+    ['create', 'find', 'findByIdAndUpdate'],
+    { callableCreate: true }
+);

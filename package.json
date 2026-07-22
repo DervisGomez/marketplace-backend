@@ -16,6 +16,7 @@
     "cookie-parser": "~1.4.3",
     "cors": "^2.8.4",
     "debug": "~2.6.9",
+    "dotenv": "^10.0.0",
     "enigma-code": "0.0.11",
     "express": "^4.17.1",
     "express-promise-router": "^3.0.3",

@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 let { app } = require('./app');
 
 let server = require('http').createServer(app);

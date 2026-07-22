@@ -1,5 +1,1 @@
-const Files = require('../../../../file/fileCtrl');
-
-module.exports = {
-    uploadImage: image => Files.uploadImage(image)
-};
+module.exports = require('../../../../shared/infrastructure/gateways/LegacyFileGateway');

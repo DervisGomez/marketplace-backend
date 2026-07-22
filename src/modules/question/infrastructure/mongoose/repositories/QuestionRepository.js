@@ -1,8 +1,6 @@
 const QuestionModel = require('../../../../../question/questionSchema');
+const BaseMongoRepository = require('../../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => new QuestionModel(data),
-    countDocuments: (...args) => QuestionModel.countDocuments(...args),
-    find: (...args) => QuestionModel.find(...args),
-    findByIdAndUpdate: (...args) => QuestionModel.findByIdAndUpdate(...args)
-};
+module.exports = BaseMongoRepository.create(QuestionModel, [
+    'create', 'countDocuments', 'find', 'findByIdAndUpdate'
+]);

@@ -1,11 +1,6 @@
 const UserModel = require('../../../../user/userSchema');
+const BaseMongoRepository = require('../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-module.exports = {
-    create: data => new UserModel(data),
-    find: (...args) => UserModel.find(...args),
-    findOne: (...args) => UserModel.findOne(...args),
-    findById: (...args) => UserModel.findById(...args),
-    findByIdAndUpdate: (...args) => UserModel.findByIdAndUpdate(...args),
-    findOneAndUpdate: (...args) => UserModel.findOneAndUpdate(...args),
-    update: (...args) => UserModel.update(...args)
-};
+module.exports = BaseMongoRepository.create(UserModel, [
+    'create', 'find', 'findOne', 'findById', 'findByIdAndUpdate', 'findOneAndUpdate', 'update'
+]);
