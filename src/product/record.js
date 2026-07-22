@@ -1,4 +1,6 @@
-
+// TODO(v2): Move to Reputation Module.
+// Encapsulado por LegacyReputationGateway; no modificar esta lógica durante
+// la modernización estructural de Product.
 let Buy = require('../buy/buySchema');
 let Account = require('../account/accountSchema');
 
