@@ -1,5 +1,10 @@
 # Changelog
 
+## Redis dependency removal
+
+- Removed the unused Redis 2 client instead of introducing a new major with no active consumer.
+- Confirmed all 222 characterization tests pass.
+
 ## Mongoose 6.13.10
 
 - Updated only Mongoose from 5.13.23 to 6.13.10.
