@@ -2,6 +2,7 @@
 
 [![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
 [![Tests](../../actions/workflows/ci.yml/badge.svg?event=push)](../../actions/workflows/ci.yml)
+[![CodeQL](../../actions/workflows/codeql.yml/badge.svg)](../../actions/workflows/codeql.yml)
 [![Node.js 22.13](https://img.shields.io/badge/Node.js-22.13-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
 
 andamio para configuracion de proyecto de una api rest
@@ -12,11 +13,9 @@ _Estas instrucciones te permitirán obtener una copia del proyecto en funcionami
 
 Mira **Deployment** para conocer como desplegar el proyecto.
 
-
 ### Pre-requisitos 📋
 
 _Debes tener instalado node.js y mongodb_
-
 
 ### Instalación 🔧
 
@@ -28,13 +27,13 @@ _2-instalar modulos_
 npm install
 ```
 
-_debes instalar nodemon globalmente si vas  a desarrollar dentro del el _
+_debes instalar nodemon globalmente si vas a desarrollar dentro del el _
 
 ```
-npm install nodemon -g 
+npm install nodemon -g
 ```
-_debes instalar nodemon globalmente si vas  a desarrollar dentro del el _
 
+_debes instalar nodemon globalmente si vas a desarrollar dentro del el _
 
 ## Deployment ⚙️
 
@@ -43,7 +42,6 @@ _para produccion _
 ```
 npm run start ó npm start
 ```
-
 
 _para desarrollo _
 
@@ -95,14 +93,11 @@ _server.js => archivo run del proyecto tanto produccion como desarrollo_
 
 _app.js => instacia y uso de modulos_
 
-
 _carpeta routes => va las rutas de los end point y su configuracion_
 
 ```
 no lleva regla de nomenclarura
 ```
-
-
 
 ## Iniciando 📦
 
@@ -111,11 +106,12 @@ _si no hay error en consola vaya a la ruta_
 ```
 http://localhost:8888/api
 ```
-_si es desarrollador y contribuira al desarrollo considere el mensaje de respuesta_ 
+
+_si es desarrollador y contribuira al desarrollo considere el mensaje de respuesta_
 
 ## Construido con 🛠️
 
-* express - El framework  usado
+- express - El framework usado
 
 ## Quality Gates
 
@@ -129,14 +125,14 @@ Every push to `master` or `main` and every pull request must pass the main CI pi
 Successful runs publish the coverage report, JUnit test results, and a source package prepared without
 `node_modules`. See [RELEASE_ENGINEERING.md](./RELEASE_ENGINEERING.md) for the release and versioning process.
 
-## Autores ✒️
+## Security
 
-* **Ricardo Perez** 
+- **CodeQL:** analyzes JavaScript on pull requests, pushes to `main`, and a weekly schedule.
+- **Dependabot:** checks npm and GitHub Actions dependencies weekly and groups compatible minor and patch
+  updates.
+- **npm audit:** produces an informational JSON report in CI without blocking legacy builds.
+- **GitHub Security:** centralizes code-scanning alerts, dependency findings, and private vulnerability
+  reports.
 
-## Licencia 📄
-
-Este proyecto está bajo la Licencia (RP) 
-
-
----
-⌨️ con ❤️ por Ricardo Perez
+Report vulnerabilities privately and review the supported-version and update policies in
+[SECURITY.md](./SECURITY.md). Do not publish vulnerability details in a public issue.

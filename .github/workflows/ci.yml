@@ -1,111 +1,156 @@
 name: CI
 
 on:
-  push:
-    branches:
-      - master
-      - main
-  pull_request:
-  workflow_call:
+    push:
+        branches:
+            - master
+            - main
+    pull_request:
+    workflow_call:
 
 permissions:
-  contents: read
+    contents: read
 
 concurrency:
-  group: ci-${{ github.workflow }}-${{ github.ref }}
-  cancel-in-progress: true
+    group: ci-${{ github.workflow }}-${{ github.ref }}
+    cancel-in-progress: true
 
 jobs:
-  quality:
-    name: Quality gates
-    runs-on: ubuntu-latest
-    timeout-minutes: 30
-    env:
-      MONGOMS_VERSION: 7.0.14
+    quality:
+        name: Quality gates
+        runs-on: ubuntu-latest
+        timeout-minutes: 30
+        env:
+            MONGOMS_VERSION: 7.0.14
 
-    steps:
-      - name: Checkout repository
-        uses: actions/checkout@v4
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
 
-      - name: Setup Node.js 22.13
-        uses: actions/setup-node@v4
-        with:
-          node-version: '22.13.1'
-          cache: npm
+            - name: Setup Node.js 22.13
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '22.13.1'
+                  cache: npm
 
-      - name: Install dependencies
-        run: npm ci
+            - name: Install dependencies
+              run: npm ci
 
-      - name: Lint
-        id: lint
-        run: npm run lint
+            - name: Lint
+              id: lint
+              run: npm run lint
 
-      - name: Check formatting
-        id: format
-        run: npm run format:check
+            - name: Check formatting
+              id: format
+              run: npm run format:check
 
-      - name: Run characterization tests
-        id: tests
-        run: |
-          mkdir -p reports
-          npm test -- --reporter=default --reporter=junit --outputFile=reports/junit.xml
+            - name: Run characterization tests
+              id: tests
+              run: |
+                  mkdir -p reports
+                  npm test -- --reporter=default --reporter=junit --outputFile=reports/junit.xml
 
-      - name: Run coverage
-        id: coverage
-        run: npm run test:coverage
+            - name: Run coverage
+              id: coverage
+              run: npm run test:coverage
 
-      - name: Prepare release package
-        id: package
-        run: |
-          mkdir -p release
-          git archive \
-            --format=tar.gz \
-            --prefix=veyco-backend/ \
-            --output=release/veyco-backend-source.tar.gz \
-            HEAD
+            - name: Prepare release package
+              id: package
+              run: |
+                  mkdir -p release
+                  git archive \
+                    --format=tar.gz \
+                    --prefix=veyco-backend/ \
+                    --output=release/veyco-backend-source.tar.gz \
+                    HEAD
 
-      - name: Publish coverage report
-        if: ${{ always() && hashFiles('coverage/**') != '' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: coverage-report-${{ github.sha }}
-          path: coverage/
-          if-no-files-found: error
-          retention-days: 14
+            - name: Publish coverage report
+              if: ${{ always() && hashFiles('coverage/**') != '' }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: coverage-report-${{ github.sha }}
+                  path: coverage/
+                  if-no-files-found: error
+                  retention-days: 14
 
-      - name: Publish test reports
-        if: ${{ always() && hashFiles('reports/**') != '' }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: test-reports-${{ github.sha }}
-          path: reports/
-          if-no-files-found: error
-          retention-days: 14
+            - name: Publish test reports
+              if: ${{ always() && hashFiles('reports/**') != '' }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: test-reports-${{ github.sha }}
+                  path: reports/
+                  if-no-files-found: error
+                  retention-days: 14
 
-      - name: Publish release package
-        if: ${{ success() }}
-        uses: actions/upload-artifact@v4
-        with:
-          name: release-package-${{ github.sha }}
-          path: release/veyco-backend-source.tar.gz
-          if-no-files-found: error
-          retention-days: 30
+            - name: Publish release package
+              if: ${{ success() }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: release-package-${{ github.sha }}
+                  path: release/veyco-backend-source.tar.gz
+                  if-no-files-found: error
+                  retention-days: 30
 
-      - name: Generate workflow summary
-        if: ${{ always() }}
-        run: |
-          {
-            echo "## CI summary"
-            echo
-            echo "| Quality gate | Result |"
-            echo "| --- | --- |"
-            echo "| ESLint | ${{ steps.lint.outcome }} |"
-            echo "| Prettier | ${{ steps.format.outcome }} |"
-            echo "| Characterization tests | ${{ steps.tests.outcome }} |"
-            echo "| Coverage | ${{ steps.coverage.outcome }} |"
-            echo "| Release package | ${{ steps.package.outcome }} |"
-            echo
-            echo "- Node.js: \`22.13.1\`"
-            echo "- Commit: \`${{ github.sha }}\`"
-            echo "- Ref: \`${{ github.ref }}\`"
-          } >> "$GITHUB_STEP_SUMMARY"
+            - name: Generate workflow summary
+              if: ${{ always() }}
+              run: |
+                  {
+                    echo "## CI summary"
+                    echo
+                    echo "| Quality gate | Result |"
+                    echo "| --- | --- |"
+                    echo "| ESLint | ${{ steps.lint.outcome }} |"
+                    echo "| Prettier | ${{ steps.format.outcome }} |"
+                    echo "| Characterization tests | ${{ steps.tests.outcome }} |"
+                    echo "| Coverage | ${{ steps.coverage.outcome }} |"
+                    echo "| Release package | ${{ steps.package.outcome }} |"
+                    echo
+                    echo "- Node.js: \`22.13.1\`"
+                    echo "- Commit: \`${{ github.sha }}\`"
+                    echo "- Ref: \`${{ github.ref }}\`"
+                  } >> "$GITHUB_STEP_SUMMARY"
+
+    security-audit:
+        name: Informational npm audit
+        runs-on: ubuntu-latest
+        timeout-minutes: 10
+
+        steps:
+            - name: Checkout repository
+              uses: actions/checkout@v4
+
+            - name: Setup Node.js 22.13
+              uses: actions/setup-node@v4
+              with:
+                  node-version: '22.13.1'
+                  cache: npm
+
+            - name: Install locked dependencies
+              run: npm ci
+
+            - name: Generate npm audit report
+              id: npm-audit
+              continue-on-error: true
+              run: |
+                  mkdir -p reports/security
+                  npm audit --json > reports/security/npm-audit.json
+
+            - name: Publish npm audit report
+              if: ${{ always() && hashFiles('reports/security/npm-audit.json') != '' }}
+              uses: actions/upload-artifact@v4
+              with:
+                  name: npm-audit-report-${{ github.sha }}
+                  path: reports/security/npm-audit.json
+                  if-no-files-found: error
+                  retention-days: 30
+
+            - name: Generate security summary
+              if: ${{ always() }}
+              run: |
+                  {
+                    echo "## Dependency security"
+                    echo
+                    echo "- npm audit result: \`${{ steps.npm-audit.outcome }}\`"
+                    echo "- Enforcement: informational; findings do not fail CI"
+                    echo "- Report: \`npm-audit-report-${{ github.sha }}\`"
+                  } >> "$GITHUB_STEP_SUMMARY"

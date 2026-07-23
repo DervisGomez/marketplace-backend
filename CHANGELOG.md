@@ -13,6 +13,11 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - JUnit test reports, coverage reports, and source packages as workflow artifacts.
 - Tag-driven GitHub Release workflow with automatically generated release notes.
 - Release Engineering and Semantic Versioning documentation.
+- Husky hooks with staged-file linting, formatting, and characterization-test protection.
+- Team Git workflow documentation.
+- CodeQL scanning for pull requests, pushes to `main`, and weekly analysis.
+- Weekly Dependabot configuration for npm and GitHub Actions.
+- Informational npm audit reports and repository security policy.
 
 ## [1.0.0] - 2026-07-22
 
