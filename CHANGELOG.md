@@ -1,5 +1,14 @@
 # Changelog
 
+## Mongoose 6.13.10
+
+- Updated only Mongoose from 5.13.23 to 6.13.10.
+- Removed obsolete Mongoose 5 connection flags.
+- Preserved permissive query casting with explicit `strictQuery: false`.
+- Disabled automatic index creation during application startup.
+- Preserved legacy write-result and MongoDB error response JSON.
+- Confirmed all 222 characterization tests pass.
+
 ## Express 5.2.1
 
 - Updated only Express from 4.17.1 to 5.2.1.

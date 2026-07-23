@@ -1,4 +1,5 @@
 const logger = require('../../../../infrastructure/logging/logger');
+const { updateResult } = require('../../../../infrastructure/http/serializeLegacyWriteResult');
 const User = require('../repositories/UserRepository');
 const Marketplace = require('../repositories/MarketplaceRepository');
 const Product = Marketplace.Product;
@@ -132,6 +133,7 @@ module.exports = {
     recordUser: async (req, res) => {
         try {
             let user = await User.updateOne({ status: 2 }, { record: 0, recordBuyer: 0 });
+            user = updateResult(user);
             res.status(200).json({ status: 1, data: user });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');

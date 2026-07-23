@@ -1,4 +1,5 @@
 const logger = require('../../../../../infrastructure/logging/logger');
+const { updateResult } = require('../../../../../infrastructure/http/serializeLegacyWriteResult');
 const Product = require('../../../infrastructure/mongoose/repositories/ProductRepository');
 
 const productData = {
@@ -28,6 +29,7 @@ module.exports = {
                 },
                 { multi: true }
             );
+            product = updateResult(product);
             res.status(200).json({ status: 1, data: product });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
@@ -46,6 +48,7 @@ module.exports = {
                 },
                 { multi: true }
             );
+            product = updateResult(product);
             res.status(200).json({ status: 1, data: product });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');

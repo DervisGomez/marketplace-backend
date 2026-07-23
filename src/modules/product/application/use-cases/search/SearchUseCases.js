@@ -219,7 +219,7 @@ module.exports = {
             });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err, 'products')] });
         }
     },
     search: async (req, res) => {
@@ -262,7 +262,7 @@ module.exports = {
             res.status(200).json({ status: 1, data: { product, numPages } });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err, 'products')] });
         }
     },
     keywords: async (req, res) => {
@@ -275,7 +275,7 @@ module.exports = {
             res.status(200).json({ status: 1, data: product });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err, 'products')] });
         }
     }
 };

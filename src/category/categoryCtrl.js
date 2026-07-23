@@ -1,4 +1,5 @@
 const logger = require('../infrastructure/logging/logger');
+const { deleteResult } = require('../infrastructure/http/serializeLegacyWriteResult');
 let Category = require('./categorySchema');
 let Product = require('../product/productSchema');
 const categories = require('./categoryList');
@@ -151,6 +152,7 @@ module.exports = {
     remove: async (req, res) => {
         try {
             let category = await Category.deleteMany({ _id: req.query._id });
+            category = deleteResult(category);
             res.status(201).json({ status: 1, data: { category } });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
@@ -160,6 +162,7 @@ module.exports = {
     removeSub: async (req, res) => {
         try {
             let subcategory = await Category.deleteMany({ _id: req.query._id });
+            subcategory = deleteResult(subcategory);
             let category = await Category.findByIdAndUpdate(
                 req.body.category,
                 {

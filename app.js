@@ -12,12 +12,10 @@ var errorLogger = require('./src/infrastructure/logging/errorLogger');
 global.config = require('./config');
 var cloudinary = require('./middlewares/cloudinary');
 
-db.connect(global.config.db.port, {
-    useCreateIndex: true,
-    useFindAndModify: false,
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-})
+db.set('strictQuery', false);
+db.set('autoIndex', false);
+
+db.connect(global.config.db.port)
     .then(() => logger.info({ database: global.config.db.port }, 'Database connected'))
     .catch(err => logger.error({ err }, 'Database connection failed'));
 

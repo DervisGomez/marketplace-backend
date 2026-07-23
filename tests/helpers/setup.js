@@ -8,6 +8,8 @@ process.env.CLOUDINARY_CLOUD_NAME = 'test';
 process.env.CLOUDINARY_API_KEY = 'test';
 process.env.CLOUDINARY_API_SECRET = 'test';
 global.config = require('../../config');
+mongoose.set('strictQuery', false);
+mongoose.set('autoIndex', false);
 
 let mongo;
 
@@ -15,12 +17,7 @@ beforeAll(async () => {
     mongo = await MongoMemoryServer.create({
         binary: { version: process.env.MONGOMS_VERSION || '7.0.14' }
     });
-    await mongoose.connect(mongo.getUri('characterization'), {
-        useCreateIndex: true,
-        useFindAndModify: false,
-        useNewUrlParser: true,
-        useUnifiedTopology: true
-    });
+    await mongoose.connect(mongo.getUri('characterization'));
 });
 
 beforeEach(async () => {

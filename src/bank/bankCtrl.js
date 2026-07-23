@@ -1,4 +1,5 @@
 const logger = require('../infrastructure/logging/logger');
+const { deleteResult } = require('../infrastructure/http/serializeLegacyWriteResult');
 let Bank = require('./bankSchema');
 let mongoose = require('mongoose');
 let Files = require('../file/fileCtrl');
@@ -34,6 +35,7 @@ module.exports = {
     remove: async (req, res) => {
         try {
             let bank = await Bank.deleteMany({ _id: req.query._id });
+            bank = deleteResult(bank);
             res.status(201).json({ status: 1, data: { bank } });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
