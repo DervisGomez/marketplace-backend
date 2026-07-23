@@ -1,5 +1,12 @@
 # Changelog
 
+## Twilio 6.0.2
+
+- Updated only Twilio from 3.23.1 to 6.0.2.
+- Preserved lazy client creation and the existing `messages.create()` payload.
+- Verified client construction without performing an external send.
+- Confirmed all 222 characterization tests pass.
+
 ## Socket.IO 4.8.3
 
 - Updated only Socket.IO from 2.1.1 to 4.8.3.
