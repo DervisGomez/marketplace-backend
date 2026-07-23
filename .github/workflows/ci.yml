@@ -66,7 +66,7 @@ jobs:
 
             - name: Publish coverage report
               if: ${{ always() && hashFiles('coverage/**') != '' }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: coverage-report-${{ github.sha }}
                   path: coverage/
@@ -75,7 +75,7 @@ jobs:
 
             - name: Publish test reports
               if: ${{ always() && hashFiles('reports/**') != '' }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: test-reports-${{ github.sha }}
                   path: reports/
@@ -84,7 +84,7 @@ jobs:
 
             - name: Publish release package
               if: ${{ success() }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: release-package-${{ github.sha }}
                   path: release/veyco-backend-source.tar.gz
@@ -137,7 +137,7 @@ jobs:
 
             - name: Publish npm audit report
               if: ${{ always() && hashFiles('reports/security/npm-audit.json') != '' }}
-              uses: actions/upload-artifact@v4
+              uses: actions/upload-artifact@v7
               with:
                   name: npm-audit-report-${{ github.sha }}
                   path: reports/security/npm-audit.json
