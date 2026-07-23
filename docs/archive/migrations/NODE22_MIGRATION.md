@@ -14,15 +14,15 @@ La migración fue validada con Node.js `22.13.1`. No se modificaron endpoints, l
 
 ## Cambios realizados
 
-| Archivo | Cambio |
-| --- | --- |
-| `package.json` | `engines.node` cambió de `12.18.0` a `>=22.13.0 <23` |
-| `package-lock.json` | Migrado de lockfile v1 a v3 por npm 10 bajo Node 22; conserva las versiones de negocio resueltas |
-| `.nvmrc` | Añadido con `22.13.1` para desarrollo local reproducible |
-| `.github/workflows/characterization-tests.yml` | CI actualizado de Node 20 a Node 22.13.1 |
-| `TESTING_STRATEGY.md` | Baseline y CI documentados con Node 22 |
-| `ESLINT_MIGRATION_PLAN.md` | Actualizado para reflejar que Node 22 ya es el baseline adoptado |
-| `NODE22_MIGRATION.md` | Evidencia, riesgos y próximos pasos de esta migración |
+| Archivo                                        | Cambio                                                                                           |
+| ---------------------------------------------- | ------------------------------------------------------------------------------------------------ |
+| `package.json`                                 | `engines.node` cambió de `12.18.0` a `>=22.13.0 <23`                                             |
+| `package-lock.json`                            | Migrado de lockfile v1 a v3 por npm 10 bajo Node 22; conserva las versiones de negocio resueltas |
+| `.nvmrc`                                       | Añadido con `22.13.1` para desarrollo local reproducible                                         |
+| `.github/workflows/characterization-tests.yml` | CI actualizado de Node 20 a Node 22.13.1                                                         |
+| `TESTING_STRATEGY.md`                          | Baseline y CI documentados con Node 22                                                           |
+| `ESLINT_MIGRATION_PLAN.md`                     | Actualizado para reflejar que Node 22 ya es el baseline adoptado                                 |
+| `NODE22_MIGRATION.md`                          | Evidencia, riesgos y próximos pasos de esta migración                                            |
 
 No fue necesario modificar ningún archivo JavaScript productivo.
 
@@ -31,13 +31,13 @@ No fue necesario modificar ningún archivo JavaScript productivo.
 Después de `npm install`, el lockfile conserva:
 
 | Dependencia | Versión resuelta |
-| --- | ---: |
-| Express | 4.17.1 |
-| Mongoose | 5.6.4 |
-| Socket.IO | 2.1.1 |
-| Redis | 2.8.0 |
-| Twilio | 3.23.1 |
-| Cloudinary | 1.14.0 |
+| ----------- | ---------------: |
+| Express     |           4.17.1 |
+| Mongoose    |            5.6.4 |
+| Socket.IO   |            2.1.1 |
+| Redis       |            2.8.0 |
+| Twilio      |           3.23.1 |
+| Cloudinary  |           1.14.0 |
 
 No se ejecutó `npm update`, `npm audit fix` ni una actualización selectiva de estas dependencias.
 
@@ -142,7 +142,7 @@ La aplicación no consume Vite. El warning pertenece al toolchain Vitest 1.6.1 y
 La búsqueda estática encontró:
 
 ```js
-new Buffer.from(value, 'base64')
+new Buffer.from(value, 'base64');
 ```
 
 en `src/file/fileCtrl.js`. Usa la API moderna `Buffer.from`, pero con `new` redundante. Node 22 no emitió una deprecación durante las pruebas. Se documenta para revisión futura y no se modifica en esta migración.

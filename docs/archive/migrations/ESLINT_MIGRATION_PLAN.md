@@ -16,18 +16,18 @@ Node 12 terminó su soporte oficial en 2022; Node 20 también está fuera de sop
 
 ## Estado auditado
 
-| Elemento | Estado actual | Implicación |
-| --- | --- | --- |
-| Node local durante la auditoría | `v20.20.2` | Entorno anterior; no representa el baseline oficial |
-| Node declarado | `>=22.13.0 <23` en `engines` | Compatible con ESLint 10, Prettier 3 y Vitest 1 |
-| npm local | `10.8.2` | Puede reescribir el lockfile v1 del proyecto si se instala sin cuidado |
-| package-lock | formato v1 | Fue generado por una generación antigua de npm |
-| Lenguaje | 246 archivos JavaScript; 0 TypeScript | No hace falta parser TypeScript |
-| Módulos | CommonJS | Uso consistente de `require` y `module.exports`; no existe `type: module` |
-| Express | declarado `^4.17.1` | API CommonJS legacy; no requiere plugin ESLint específico |
-| Mongoose | declarado `^5.5.13`; resuelto actualmente como `5.6.4` | API antigua, callbacks/deprecaciones y patrones dinámicos sensibles a reglas agresivas |
-| Tests | Vitest 1.6.1, Supertest 7.1.1, MongoMemoryServer 10.1.4 | El toolchain de tests ya presupone Node moderno |
-| Configuración actual | No hay ESLint, Prettier ni EditorConfig | No existe baseline previo que preservar |
+| Elemento                        | Estado actual                                           | Implicación                                                                            |
+| ------------------------------- | ------------------------------------------------------- | -------------------------------------------------------------------------------------- |
+| Node local durante la auditoría | `v20.20.2`                                              | Entorno anterior; no representa el baseline oficial                                    |
+| Node declarado                  | `>=22.13.0 <23` en `engines`                            | Compatible con ESLint 10, Prettier 3 y Vitest 1                                        |
+| npm local                       | `10.8.2`                                                | Puede reescribir el lockfile v1 del proyecto si se instala sin cuidado                 |
+| package-lock                    | formato v1                                              | Fue generado por una generación antigua de npm                                         |
+| Lenguaje                        | 246 archivos JavaScript; 0 TypeScript                   | No hace falta parser TypeScript                                                        |
+| Módulos                         | CommonJS                                                | Uso consistente de `require` y `module.exports`; no existe `type: module`              |
+| Express                         | declarado `^4.17.1`                                     | API CommonJS legacy; no requiere plugin ESLint específico                              |
+| Mongoose                        | declarado `^5.5.13`; resuelto actualmente como `5.6.4`  | API antigua, callbacks/deprecaciones y patrones dinámicos sensibles a reglas agresivas |
+| Tests                           | Vitest 1.6.1, Supertest 7.1.1, MongoMemoryServer 10.1.4 | El toolchain de tests ya presupone Node moderno                                        |
+| Configuración actual            | No hay ESLint, Prettier ni EditorConfig                 | No existe baseline previo que preservar                                                |
 
 ### Dependencias y runtime
 
@@ -37,14 +37,14 @@ Las dependencias principales son de la generación 2018-2020: Express 4, Mongoos
 
 ## Matriz de compatibilidad
 
-| Herramienta | Requisito de Node | Compatible con Node 12.18 | Estado/recomendación |
-| --- | --- | --- | --- |
-| ESLint 7.32.0 | `^10.12 || >=12` | Sí | Único puente seguro si 12.18 sigue siendo obligatorio; está EOL |
-| ESLint 8.57.1 | `^12.22 || ^14.17 || >=16` | **No** | No instalar mientras `engines` sea 12.18; también está EOL |
-| ESLint 9.39.x | `^18.18 || ^20.9 || >=21.1` | No | Compatible con el Node local, pero en mantenimiento hasta agosto de 2026 |
-| ESLint 10.x | `^20.19 || ^22.13 || >=24` | No | Opción actual después de fijar Node 22.13+ |
-| Prettier 2.8.8 | `>=10.13` | Sí | Puente compatible con Node 12; versión antigua |
-| Prettier 3.x | `>=14` | No | Recomendado después de modernizar Node |
+| Herramienta    | Requisito de Node | Compatible con Node 12.18 | Estado/recomendación                           |
+| -------------- | ----------------- | ------------------------- | ---------------------------------------------- |
+| ESLint 7.32.0  | `^10.12           |                           | >=12`                                          | Sí  | Único puente seguro si 12.18 sigue siendo obligatorio; está EOL |
+| ESLint 8.57.1  | `^12.22           |                           | ^14.17                                         |     | >=16`                                                           | **No** | No instalar mientras `engines` sea 12.18; también está EOL               |
+| ESLint 9.39.x  | `^18.18           |                           | ^20.9                                          |     | >=21.1`                                                         | No     | Compatible con el Node local, pero en mantenimiento hasta agosto de 2026 |
+| ESLint 10.x    | `^20.19           |                           | ^22.13                                         |     | >=24`                                                           | No     | Opción actual después de fijar Node 22.13+                               |
+| Prettier 2.8.8 | `>=10.13`         | Sí                        | Puente compatible con Node 12; versión antigua |
+| Prettier 3.x   | `>=14`            | No                        | Recomendado después de modernizar Node         |
 
 ESLint documenta que v8 requiere como mínimo Node 12.22 y recomienda permanecer en ESLint 7 si no se puede actualizar Node. [Guía oficial de migración a ESLint 8](https://eslint.org/docs/latest/use/migrate-to-8.0.0). Las líneas 7 y 8 están EOL, ESLint 9 está en mantenimiento y ESLint 10 es la línea actual. [Política oficial de versiones de ESLint](https://eslint.org/version-support/).
 
@@ -180,14 +180,14 @@ Para minimizar diferencias respecto al código dominante:
 
 ```json
 {
-  "semi": true,
-  "singleQuote": true,
-  "tabWidth": 4,
-  "useTabs": false,
-  "printWidth": 120,
-  "trailingComma": "none",
-  "arrowParens": "avoid",
-  "endOfLine": "lf"
+    "semi": true,
+    "singleQuote": true,
+    "tabWidth": 4,
+    "useTabs": false,
+    "printWidth": 120,
+    "trailingComma": "none",
+    "arrowParens": "avoid",
+    "endOfLine": "lf"
 }
 ```
 

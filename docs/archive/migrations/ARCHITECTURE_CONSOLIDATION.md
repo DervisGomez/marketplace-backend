@@ -8,14 +8,14 @@ Los archivos locales que ya formaban parte de la arquitectura pública de cada m
 
 ## Duplicaciones encontradas
 
-| Duplicación | Módulos | Resultado |
-| --- | --- | --- |
-| Delegación de métodos Mongoose (`find`, `aggregate`, `update`, etc.) | Los seis módulos | Extraída a `BaseMongoRepository` |
-| Conversión `mongoose.Types.ObjectId` | Product, Buy, Payment | Extraída a `MongoObjectId` compartido |
-| Gateway legacy de archivos | Buy, Payment | Extraído a un gateway compartido |
-| Gateway legacy de reputación con `info`/`infoBuyer` | Buy, Payment | Extraído a un gateway compartido |
-| Copia defensiva legacy de `req.body` | Los seis módulos | Extraída a `LegacyRequestDto` |
-| Cálculo legacy de páginas y offset | Product | Movido a Shared y conservado mediante fachada local |
+| Duplicación                                                          | Módulos               | Resultado                                           |
+| -------------------------------------------------------------------- | --------------------- | --------------------------------------------------- |
+| Delegación de métodos Mongoose (`find`, `aggregate`, `update`, etc.) | Los seis módulos      | Extraída a `BaseMongoRepository`                    |
+| Conversión `mongoose.Types.ObjectId`                                 | Product, Buy, Payment | Extraída a `MongoObjectId` compartido               |
+| Gateway legacy de archivos                                           | Buy, Payment          | Extraído a un gateway compartido                    |
+| Gateway legacy de reputación con `info`/`infoBuyer`                  | Buy, Payment          | Extraído a un gateway compartido                    |
+| Copia defensiva legacy de `req.body`                                 | Los seis módulos      | Extraída a `LegacyRequestDto`                       |
+| Cálculo legacy de páginas y offset                                   | Product               | Movido a Shared y conservado mediante fachada local |
 
 El gateway de reputación de Product no se consolidó: su contrato es `calculate(id)`, distinto del contrato `info(id)`/`infoBuyer(id)` de Buy y Payment.
 

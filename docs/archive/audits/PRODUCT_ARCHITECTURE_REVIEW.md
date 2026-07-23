@@ -132,31 +132,31 @@ SellerRole evalúa cantidad de ventas positivas, monto total y existencia de cue
 
 Prefijo efectivo: `/api/product`.
 
-| Método | Ruta | Auth | Descripción observable | Controller | Caso de uso |
-| --- | --- | --- | --- | --- | --- |
-| POST | `/` | Sí | Crea publicación, asigna número/propietario/ubicación y carga imágenes. | `new` | Crear publicación |
-| PUT | `/` | Sí | Actualiza por `_id`; carga `imagesNew` cuando existen. | `edit` | Editar publicación |
-| PUT | `/pause` | Sí | Cambia `status` a `2`. | `pause` | Pausar publicación |
-| PUT | `/start` | Sí | Cambia `status` a `1` si `quantity > 0`. | `start` | Reactivar publicación |
-| GET | `/` | Sí | Lista publicaciones propias por estado y devuelve conteos agrupados. | `me` | Inventario propio |
-| GET | `/user` | No | Lista publicaciones activas de un usuario y su documento User. | `user` | Catálogo del vendedor |
-| GET | `/query` | No | Detalle por `_id` con vendedor, preguntas, relacionados, ventas y reputación. | `query` | Ver publicación |
-| GET | `/number` | No | Detalle equivalente localizado por número público. | `queryNumber` | Ver publicación por número |
-| GET | `/query-find` | Sí | Detalle para compra, reputación, balance y direcciones autorizadas. | `queryFind` | Preparar compra |
-| GET | `/find` | Sí | Obtiene publicación con categoría y subcategoría. | `find` | Consultar publicación autenticada |
-| GET | `/category` | No | Lista productos cuya `category` está dentro de `category.subcategory`. | `category` | Navegar categoría |
-| GET | `/subcategory` | No | Lista productos cuyo campo `category` coincide con `_id`. | `subcategory` | Navegar subcategoría |
-| GET | `/filter` | No | Filtra catálogo y devuelve facetas de categoría, ubicación y condición. | `filter` | Búsqueda facetada |
-| GET | `/search` | No | Busca con filtros y paginación. | `search` | Buscar catálogo |
-| GET | `/keywords` | No | Devuelve hasta 10 títulos que coinciden con una regex. | `keywords` | Autocompletado |
-| POST | `/favorite` | Sí | Añade al usuario al arreglo de favoritos usando `$addToSet`. | `favoriteAdd` | Agregar favorito |
-| DELETE | `/favorite` | Sí | Retira al usuario del arreglo mediante `$pull`. | `favoriteRemove` | Eliminar favorito |
-| GET | `/favorite` | Sí | Lista productos favoritos del usuario. | `favorite` | Consultar favoritos |
-| GET | `/operations` | Sí | Produce serie mensual normal/destacada/activa. | `operations` | Reporte de publicaciones |
-| GET | `/outstanding` | No | Lista activos con `highlight: 'highlight'`. | `outstanding` | Publicaciones destacadas |
-| GET | `/last` | No | Lista activos por orden natural descendente. | `last` | Publicaciones recientes |
-| GET | `/sold` | No | Lista activos con `quantitySold > 0`, ordenados por ventas. | `sold` | Más vendidos |
-| GET | `/increment` | No | Crea un documento contador. | `createIncrement` | Inicializar contador |
+| Método | Ruta           | Auth | Descripción observable                                                        | Controller        | Caso de uso                       |
+| ------ | -------------- | ---- | ----------------------------------------------------------------------------- | ----------------- | --------------------------------- |
+| POST   | `/`            | Sí   | Crea publicación, asigna número/propietario/ubicación y carga imágenes.       | `new`             | Crear publicación                 |
+| PUT    | `/`            | Sí   | Actualiza por `_id`; carga `imagesNew` cuando existen.                        | `edit`            | Editar publicación                |
+| PUT    | `/pause`       | Sí   | Cambia `status` a `2`.                                                        | `pause`           | Pausar publicación                |
+| PUT    | `/start`       | Sí   | Cambia `status` a `1` si `quantity > 0`.                                      | `start`           | Reactivar publicación             |
+| GET    | `/`            | Sí   | Lista publicaciones propias por estado y devuelve conteos agrupados.          | `me`              | Inventario propio                 |
+| GET    | `/user`        | No   | Lista publicaciones activas de un usuario y su documento User.                | `user`            | Catálogo del vendedor             |
+| GET    | `/query`       | No   | Detalle por `_id` con vendedor, preguntas, relacionados, ventas y reputación. | `query`           | Ver publicación                   |
+| GET    | `/number`      | No   | Detalle equivalente localizado por número público.                            | `queryNumber`     | Ver publicación por número        |
+| GET    | `/query-find`  | Sí   | Detalle para compra, reputación, balance y direcciones autorizadas.           | `queryFind`       | Preparar compra                   |
+| GET    | `/find`        | Sí   | Obtiene publicación con categoría y subcategoría.                             | `find`            | Consultar publicación autenticada |
+| GET    | `/category`    | No   | Lista productos cuya `category` está dentro de `category.subcategory`.        | `category`        | Navegar categoría                 |
+| GET    | `/subcategory` | No   | Lista productos cuyo campo `category` coincide con `_id`.                     | `subcategory`     | Navegar subcategoría              |
+| GET    | `/filter`      | No   | Filtra catálogo y devuelve facetas de categoría, ubicación y condición.       | `filter`          | Búsqueda facetada                 |
+| GET    | `/search`      | No   | Busca con filtros y paginación.                                               | `search`          | Buscar catálogo                   |
+| GET    | `/keywords`    | No   | Devuelve hasta 10 títulos que coinciden con una regex.                        | `keywords`        | Autocompletado                    |
+| POST   | `/favorite`    | Sí   | Añade al usuario al arreglo de favoritos usando `$addToSet`.                  | `favoriteAdd`     | Agregar favorito                  |
+| DELETE | `/favorite`    | Sí   | Retira al usuario del arreglo mediante `$pull`.                               | `favoriteRemove`  | Eliminar favorito                 |
+| GET    | `/favorite`    | Sí   | Lista productos favoritos del usuario.                                        | `favorite`        | Consultar favoritos               |
+| GET    | `/operations`  | Sí   | Produce serie mensual normal/destacada/activa.                                | `operations`      | Reporte de publicaciones          |
+| GET    | `/outstanding` | No   | Lista activos con `highlight: 'highlight'`.                                   | `outstanding`     | Publicaciones destacadas          |
+| GET    | `/last`        | No   | Lista activos por orden natural descendente.                                  | `last`            | Publicaciones recientes           |
+| GET    | `/sold`        | No   | Lista activos con `quantitySold > 0`, ordenados por ventas.                   | `sold`            | Más vendidos                      |
+| GET    | `/increment`   | No   | Crea un documento contador.                                                   | `createIncrement` | Inicializar contador              |
 
 No existe endpoint de eliminación de una publicación en este router.
 
@@ -164,19 +164,19 @@ No existe endpoint de eliminación de una publicación en este router.
 
 ### Dependencias salientes
 
-| Dependencia | Uso |
-| --- | --- |
+| Dependencia      | Uso                                                                       |
+| ---------------- | ------------------------------------------------------------------------- |
 | Mongoose/Product | CRUD, conteos, agregaciones, populate, texto y actualización de métricas. |
-| Auth/Token | Protege 12 rutas y aporta `req.user`/`req.token`. |
-| File/Cloudinary | Carga imágenes y mantiene URLs ya existentes. |
-| User | Datos de vendedor y ubicación. |
-| Category | Navegación, populate y construcción de facetas. |
-| Question | Preguntas visibles en el detalle. |
-| Buy | Conteo de operaciones y cálculo de reputación. |
-| Payment | Balance agrupado por tipo para `queryFind`. |
-| Authorized | Direcciones/datos autorizados para compra. |
-| Account | Requisito de cuenta bancaria en reputación. |
-| Location | Catálogo estático para facetas geográficas. |
+| Auth/Token       | Protege 12 rutas y aporta `req.user`/`req.token`.                         |
+| File/Cloudinary  | Carga imágenes y mantiene URLs ya existentes.                             |
+| User             | Datos de vendedor y ubicación.                                            |
+| Category         | Navegación, populate y construcción de facetas.                           |
+| Question         | Preguntas visibles en el detalle.                                         |
+| Buy              | Conteo de operaciones y cálculo de reputación.                            |
+| Payment          | Balance agrupado por tipo para `queryFind`.                               |
+| Authorized       | Direcciones/datos autorizados para compra.                                |
+| Account          | Requisito de cuenta bancaria en reputación.                               |
+| Location         | Catálogo estático para facetas geográficas.                               |
 
 ### Dependencias entrantes
 
@@ -501,14 +501,14 @@ La dirección objetivo de dependencias sería Presentation → Application → D
 
 Escala: 1 es deficiente/bajo y 10 es excelente/alto. Las excepciones son **Acoplamiento** y **Riesgo**, donde 10 representa el máximo nivel perjudicial.
 
-| Dimensión | Puntuación | Fundamentación |
-| --- | ---: | --- |
-| Cohesión | 3/10 | Publicación, búsqueda, favoritos, reporting, checkout y reputación comparten módulo. |
-| Acoplamiento | 9/10 | Alto acoplamiento directo y bidireccional con siete modelos/servicios externos. |
-| Escalabilidad | 3/10 | Controller monolítico, uploads dentro del request, regex/facetas y arreglos embebidos. |
-| Legibilidad | 4/10 | Flujo lineal comprensible, pero nombres genéricos, duplicación, globals y literales dificultan el mapa mental. |
-| Riesgo | 9/10 | Autorización de objeto, borrado externo total, persistencia parcial e invariantes distribuidas. |
-| Mantenibilidad | 2/10 | Cambios de catálogo, compra o reputación atraviesan múltiples módulos sin puertos ni pruebas visibles. |
+| Dimensión      | Puntuación | Fundamentación                                                                                                 |
+| -------------- | ---------: | -------------------------------------------------------------------------------------------------------------- |
+| Cohesión       |       3/10 | Publicación, búsqueda, favoritos, reporting, checkout y reputación comparten módulo.                           |
+| Acoplamiento   |       9/10 | Alto acoplamiento directo y bidireccional con siete modelos/servicios externos.                                |
+| Escalabilidad  |       3/10 | Controller monolítico, uploads dentro del request, regex/facetas y arreglos embebidos.                         |
+| Legibilidad    |       4/10 | Flujo lineal comprensible, pero nombres genéricos, duplicación, globals y literales dificultan el mapa mental. |
+| Riesgo         |       9/10 | Autorización de objeto, borrado externo total, persistencia parcial e invariantes distribuidas.                |
+| Mantenibilidad |       2/10 | Cambios de catálogo, compra o reputación atraviesan múltiples módulos sin puertos ni pruebas visibles.         |
 
 ## Qué debería permanecer y qué debería cambiar de ubicación
 

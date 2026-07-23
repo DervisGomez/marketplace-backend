@@ -122,6 +122,12 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - Structured Pino application and HTTP logging with correlation IDs and centralized error logging.
 - Sensitive-field redaction and observability integration guidance.
 
+### Changed
+
+- Consolidated active documentation into `README.md` and topic-specific guides under `docs/`.
+- Moved completed migration plans, module refactoring notes, audits, reports, and roadmaps to
+  `docs/archive/`.
+
 ## [1.0.0] - 2026-07-22
 
 ### Added

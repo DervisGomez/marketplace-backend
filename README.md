@@ -1,147 +1,122 @@
-# Andamio
+# Veyco Marketplace Backend
 
-[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
-[![Tests](../../actions/workflows/ci.yml/badge.svg?event=push)](../../actions/workflows/ci.yml)
-[![CodeQL](../../actions/workflows/codeql.yml/badge.svg)](../../actions/workflows/codeql.yml)
-[![Node.js 22.13](https://img.shields.io/badge/Node.js-22.13-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+Backend del marketplace Veyco. Expone una API HTTP sobre Express, persiste datos en MongoDB mediante
+Mongoose y soporta comunicación en tiempo real con Socket.IO.
 
-andamio para configuracion de proyecto de una api rest
+## Arquitectura
 
-## Comenzando 🚀
+El servicio es un monolito modular organizado por capacidades. Los módulos viven en `src/modules/` y
+separan presentación, aplicación, dominio e infraestructura. La modernización es incremental: todavía
+existen adaptadores y fachadas CommonJS de compatibilidad.
 
-_Estas instrucciones te permitirán obtener una copia del proyecto en funcionamiento en tu máquina local para propósitos de desarrollo y pruebas._
+Consulta [Architecture](docs/Architecture.md) para conocer las capas, módulos, flujo de petición y reglas
+vigentes.
 
-Mira **Deployment** para conocer como desplegar el proyecto.
+## Tecnologías
 
-### Pre-requisitos 📋
+- Node.js 22.13.x
+- TypeScript y CommonJS
+- Express 5
+- Mongoose 8 y MongoDB
+- Vitest, Supertest y MongoMemoryServer
+- ESLint 9, Prettier 3 y Husky
+- Pino y pino-http
+- Socket.IO 4
 
-_Debes tener instalado node.js y mongodb_
+## Requisitos
 
-### Instalación 🔧
+- Node.js `>=22.13.0 <23`
+- npm
+- MongoDB accesible para ejecutar la aplicación
 
-_1-debes clonar el repositorio en tu maquina y luego ubicarte dentro del archivo del proyecto_
+## Instalación
 
-_2-instalar modulos_
-
-```
-npm install
-```
-
-_debes instalar nodemon globalmente si vas a desarrollar dentro del el _
-
-```
-npm install nodemon -g
-```
-
-_debes instalar nodemon globalmente si vas a desarrollar dentro del el _
-
-## Deployment ⚙️
-
-_para produccion _
-
-```
-npm run start ó npm start
+```bash
+npm ci
+cp .env.example .env
 ```
 
-_para desarrollo _
+Completa las variables necesarias y arranca en desarrollo:
 
-```
+```bash
 npm run dev
 ```
 
-### Analizando la estructura de carpeta🔩
+La API usa el puerto `3000` por defecto y se monta bajo `/api`.
 
-_carpeta node_modules => contendra los modulos importados desarrollado por terceros, si ha creado un modulo por favor guardelo en la carpeta middlewares_
+## Configuración
 
+`JWT_SECRET` es obligatorio en todos los entornos. En producción también son obligatorias las credenciales
+de Cloudinary, Mailjet y Twilio; la aplicación falla al iniciar si falta alguna.
+
+| Variable              | Uso                         | Valor por defecto           |
+| --------------------- | --------------------------- | --------------------------- |
+| `NODE_ENV`            | Entorno de ejecución        | `development`               |
+| `PORT`                | Puerto HTTP                 | `3000`                      |
+| `WEB_URL`             | URL del cliente web         | `http://localhost:4200/`    |
+| `MONGODB_URI`         | Conexión MongoDB            | `mongodb://localhost/mlolx` |
+| `JWT_SECRET`          | Firma de tokens             | Sin valor; obligatoria      |
+| `JWT_EXPIRATION_DAYS` | Duración del token          | `7`                         |
+| `BCRYPT_SALT_ROUNDS`  | Rondas de bcrypt            | `10`                        |
+| `UPLOADS_PATH`        | Ruta configurada de uploads | `./uploads`                 |
+| `LOG_LEVEL`           | Nivel de Pino               | Según entorno               |
+
+La lista completa, incluidos Mailjet, Twilio y Cloudinary, está en `.env.example` y se explica en
+[Development](docs/Development.md).
+
+## Scripts
+
+| Comando                 | Propósito                          |
+| ----------------------- | ---------------------------------- |
+| `npm run build`         | Compilar TypeScript a `dist/`      |
+| `npm run typecheck`     | Validar tipos sin emitir archivos  |
+| `npm start`             | Compilar y ejecutar `server.js`    |
+| `npm run dev`           | Compilar y ejecutar con nodemon    |
+| `npm test`              | Ejecutar los 243 tests             |
+| `npm run test:coverage` | Ejecutar tests y generar cobertura |
+| `npm run test:watch`    | Ejecutar Vitest en modo watch      |
+| `npm run lint`          | Ejecutar ESLint                    |
+| `npm run format:check`  | Verificar formato                  |
+| `npm run format`        | Aplicar Prettier                   |
+
+## Testing y calidad
+
+La suite contiene 243 tests, incluidos characterization tests HTTP sobre Express y MongoDB real en memoria.
+CI ejecuta lint, formato, tests, cobertura y empaquetado en cada pull request y push a las ramas principales.
+
+Consulta [Testing](docs/Testing.md) y [Contributing](docs/Contributing.md).
+
+## Estructura
+
+```text
+src/modules/        módulos de negocio
+src/infrastructure/ infraestructura HTTP y logging compartida
+src/config/         configuración tipada y validación
+src/shared/         contratos y adapters compartidos
+middlewares/       middleware de autenticación, uploads y proveedores
+services/           integraciones y servicios de compatibilidad
+socket/             conexión Socket.IO
+tests/              characterization, seguridad, configuración y plataforma
+.github/workflows/  CI, CodeQL y releases
+docs/               documentación vigente e historial
 ```
-no meter ningun modulo creado por usted en esta carpeta
-```
 
-_carpeta middlewares => contendra los modulos generados por los desarrolladores, ha de aclarar su buen uso, considerando que un middleware su inyeccion va en la cabecera de la peticion de los end point _
+## Contribuir
 
-```
-no lleva regla de nomenclatura
-```
+Instala con `npm ci`, crea cambios pequeños, conserva los contratos caracterizados y deja que los hooks den
+feedback local. GitHub Actions es el gate definitivo. Lee [Contributing](docs/Contributing.md) antes de
+enviar cambios.
 
-_caperta models => contendra los esquemas de la base de datos, debe seguir esta regla_
+## Documentación
 
-```
-Schema<Nombre>.js
-```
+- [Architecture](docs/Architecture.md)
+- [Development](docs/Development.md)
+- [Testing](docs/Testing.md)
+- [Security](docs/Security.md)
+- [Deployment](docs/Deployment.md)
+- [Observability](docs/Observability.md)
+- [Contributing](docs/Contributing.md)
+- [Changelog](CHANGELOG.md)
 
-_carpeta services => contendra los servicios que seran inyectados dentro de la logica de los archivos controllers_
-
-```
-no lleva regla de nomenclatura
-```
-
-_carpeta controllers => va la logica de respuesta, manipulacion y uso que son recibidas de los end point_
-
-```
-Ctrl<Nombre>.js
-```
-
-_carpeta public_
-
-```
-NO esta en uso actualmente
-```
-
-_config.js => van las configuraciones del puerto del servidor, base de datos, y las configuraciones necesarias de las clave valor de apis de terceros, como cloudinary, mailgun y más_
-
-_server.js => archivo run del proyecto tanto produccion como desarrollo_
-
-_app.js => instacia y uso de modulos_
-
-_carpeta routes => va las rutas de los end point y su configuracion_
-
-```
-no lleva regla de nomenclarura
-```
-
-## Iniciando 📦
-
-_si no hay error en consola vaya a la ruta_
-
-```
-http://localhost:8888/api
-```
-
-_si es desarrollador y contribuira al desarrollo considere el mensaje de respuesta_
-
-## Construido con 🛠️
-
-- express - El framework usado
-
-## Quality Gates
-
-Every push to `master` or `main` and every pull request must pass the main CI pipeline:
-
-- **Lint:** `npm run lint` enforces the ESLint 9 rules.
-- **Format:** `npm run format:check` verifies formatting with Prettier 3.
-- **Tests:** `npm test` runs the 222 characterization tests that protect the observable legacy behavior.
-- **Coverage:** `npm run test:coverage` generates the V8 HTML and LCOV reports.
-
-Successful runs publish the coverage report, JUnit test results, and a source package prepared without
-`node_modules`. See [RELEASE_ENGINEERING.md](./RELEASE_ENGINEERING.md) for the release and versioning process.
-
-## Security
-
-- **CodeQL:** analyzes JavaScript on pull requests, pushes to `main`, and a weekly schedule.
-- **Dependabot:** checks npm and GitHub Actions dependencies weekly and groups compatible minor and patch
-  updates.
-- **npm audit:** produces an informational JSON report in CI without blocking legacy builds.
-- **GitHub Security:** centralizes code-scanning alerts, dependency findings, and private vulnerability
-  reports.
-
-Report vulnerabilities privately and review the supported-version and update policies in
-[SECURITY.md](./SECURITY.md). Do not publish vulnerability details in a public issue.
-
-## Observability
-
-The backend emits structured Pino logs, correlates each HTTP request with `X-Request-ID`, redacts common
-credentials, and records request duration and failures without changing API responses. Development uses
-readable output, while production emits JSON for centralized collection.
-
-See [OBSERVABILITY.md](./OBSERVABILITY.md) for configuration, log levels, correlation IDs, sensitive-data
-handling, and future Grafana, Loki, ELK, and OpenTelemetry integration.
+Los informes y planes completados se conservan fuera de la documentación principal en
+[`docs/archive/`](docs/archive/README.md).
