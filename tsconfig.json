@@ -12,6 +12,12 @@
         "declaration": true,
         "sourceMap": true
     },
-    "include": ["src/infrastructure/**/*.ts"],
+    "include": [
+        "src/infrastructure/**/*.ts",
+        "src/config/**/*.ts",
+        "src/shared/infrastructure/mongoose/**/*.ts",
+        "src/shared/pagination/**/*.ts",
+        "src/shared/presentation/dto/**/*.ts"
+    ],
     "exclude": ["node_modules", "dist"]
 }

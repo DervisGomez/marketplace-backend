@@ -1,5 +1,1 @@
-function from(body) {
-    return Object.assign({}, body);
-}
-
-module.exports = { from };
+module.exports = require('../../../../dist/src/shared/presentation/dto/LegacyRequestDto');

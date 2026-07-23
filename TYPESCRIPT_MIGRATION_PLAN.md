@@ -9,11 +9,13 @@ The migration is incremental and preserves CommonJS entry points throughout the 
 | Metric                          |   Current value |
 | ------------------------------- | --------------: |
 | Productive logical modules      |             238 |
-| Canonical TypeScript modules    |               3 |
-| Overall migration               |            1.3% |
+| Canonical TypeScript modules    |              12 |
+| Overall migration               |            5.0% |
 | Infrastructure modules          |               7 |
-| Infrastructure modules migrated |               3 |
-| Infrastructure migration        |           42.9% |
+| Infrastructure modules migrated |               7 |
+| Infrastructure migration        |          100.0% |
+| Configuration modules migrated  |             1/1 |
+| Shared utilities migrated       |             4/4 |
 | Characterization tests          | 222/222 passing |
 | HTTP routes                     |   134 preserved |
 
@@ -39,16 +41,33 @@ legacy CommonJS consumer
 - `dist/` is generated and excluded from version control.
 - No HTTP route, status code, JSON body, or provider payload may change during a type-only migration.
 
-## Completed phase: infrastructure HTTP
+## Completed scope: shared infrastructure
+
+All runtime modules in `src/infrastructure`, the canonical configuration module in `src/config`, and the
+selected technical utilities in `src/shared` now have strict TypeScript implementations.
 
 Canonical TypeScript implementations:
 
+- `src/config/config.ts`
 - `src/infrastructure/http/createRouter.ts`
 - `src/infrastructure/http/serializeLegacyError.ts`
 - `src/infrastructure/http/serializeLegacyWriteResult.ts`
+- `src/infrastructure/logging/correlationId.ts`
+- `src/infrastructure/logging/errorLogger.ts`
+- `src/infrastructure/logging/logger.ts`
+- `src/infrastructure/logging/requestLogger.ts`
+- `src/shared/infrastructure/mongoose/BaseMongoRepository.ts`
+- `src/shared/infrastructure/mongoose/MongoObjectId.ts`
+- `src/shared/pagination/LegacyPagination.ts`
+- `src/shared/presentation/dto/LegacyRequestDto.ts`
 
-Their original `.js` paths remain compatibility bridges. The typed contracts cover Express routers,
-legacy MongoDB error DTOs, and legacy write-result DTOs.
+Shared type declaration:
+
+- `src/infrastructure/http/express.d.ts` augments Express requests with `requestId`.
+
+Their original `.js` paths remain compatibility bridges. The typed contracts cover configuration, Express
+routers and request context, Pino logging, legacy MongoDB DTOs, ObjectId construction, the generic Mongoose
+repository factory, pagination, and request DTO cloning.
 
 Validation:
 
@@ -59,10 +78,10 @@ Validation:
 
 ## Migration phases
 
-### Phase 1 — remaining infrastructure
+### Phase 1 — remaining infrastructure (completed)
 
-Migrate infrastructure adapters and shared technical utilities before application code. Keep schema/model
-files in JavaScript until repository contracts are typed.
+Infrastructure HTTP, logging, configuration, and selected shared technical utilities use strict
+TypeScript. Schema/model files remain JavaScript until their functional repositories are migrated.
 
 Exit criteria:
 
@@ -70,7 +89,7 @@ Exit criteria:
 - every migrated module retains a CommonJS bridge;
 - 222/222 tests pass after each small group.
 
-### Phase 2 — configuration
+### Phase 2 — configuration (completed)
 
 Migrate:
 
@@ -78,9 +97,10 @@ Migrate:
 - the root `config.js` compatibility entry point;
 - environment/configuration types.
 
-Preserve environment-variable names, defaults, coercion, and missing-value behavior.
+Environment-variable names, defaults, coercion, and missing-value behavior are preserved. The root
+`config.js` continues to resolve through the stable `src/config/config.js` CommonJS bridge.
 
-### Phase 3 — logging
+### Phase 3 — logging (completed)
 
 Migrate:
 
@@ -89,8 +109,8 @@ Migrate:
 - `requestLogger.js`;
 - `errorLogger.js`.
 
-Add Express request augmentation for `requestId` and logger fields without changing log levels,
-redaction, serializers, headers, or error flow.
+Express request augmentation for `requestId` is defined without changing log levels, redaction,
+serializers, headers, or error flow.
 
 ### Phase 4 — middlewares
 
@@ -147,4 +167,10 @@ Only after all productive modules are TypeScript:
   dependencies available before starting the application.
 - Coverage currently targets JavaScript source paths; TypeScript coverage should be switched only after
   enough canonical runtime modules have migrated to keep historical reports comparable.
-- Express request augmentation will be introduced in the logging phase, not globally in this first slice.
+- Temporary `.js` bridges remain required until all CommonJS consumers execute from the compiled tree.
+- `src/shared/infrastructure/gateways/LegacyFileGateway.js` and
+  `src/shared/infrastructure/gateways/LegacyReputationGateway.js` are intentionally pending: they delegate
+  to functional file and reputation code, which is outside the shared-utility scope of this phase.
+- Mongoose schemas and business repositories remain JavaScript by design.
+- The next authorized phase is middleware migration; modules, controllers, services, business
+  repositories, and routers remain untouched.

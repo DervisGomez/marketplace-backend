@@ -1,3 +1,1 @@
-const ObjectId = require('mongoose').Types.ObjectId;
-
-module.exports = value => new ObjectId(value);
+module.exports = require('../../../../dist/src/shared/infrastructure/mongoose/MongoObjectId');

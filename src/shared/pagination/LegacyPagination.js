@@ -1,8 +1,1 @@
-module.exports = {
-    pages(count, limit) {
-        return parseInt((count / limit) + 1);
-    },
-    offset(skip, limit) {
-        return (parseInt(skip) - 1) * parseInt(limit);
-    }
-};
+module.exports = require('../../../dist/src/shared/pagination/LegacyPagination');

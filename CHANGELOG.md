@@ -1,5 +1,15 @@
 # Changelog
 
+## Shared infrastructure TypeScript completion
+
+- Migrated all remaining runtime files in `src/infrastructure` to strict TypeScript.
+- Migrated canonical configuration and four shared technical utilities.
+- Added reusable Express request augmentation for correlation IDs.
+- Preserved every existing CommonJS import through JavaScript bridges.
+- Preserved Mongoose static method binding in the typed repository factory.
+- Reached 12 of 238 productive logical modules migrated (5.0% overall).
+- Confirmed typecheck, build, 222 characterization tests, and 134 routes remain green.
+
 ## Incremental TypeScript migration: infrastructure HTTP
 
 - Added a strict TypeScript build that emits CommonJS-compatible modules.
