@@ -1,5 +1,10 @@
 # Changelog
 
+## Nodemailer dependency removal
+
+- Removed dormant Nodemailer; the application uses Mailjet as its active email provider.
+- Completed the external SDK stage with all 222 characterization tests passing.
+
 ## Mailjet 6.0.11
 
 - Updated only `node-mailjet` from 3.3.1 to 6.0.11.

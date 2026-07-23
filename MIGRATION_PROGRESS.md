@@ -10,7 +10,7 @@ Updated: 2026-07-23
 | Latest Mongoose 5      | Mongoose 5.13.23                | Completed   | 222/222    |
 | Express 5              | Express 5.2.1                   | Completed   | 222/222    |
 | Mongoose 6             | Mongoose 6.13.10                | Completed   | 222/222    |
-| External SDKs          | Pending                         | Not started | —          |
+| External SDKs          | Provider SDK set                | Completed   | 222/222    |
 | Mongoose 7 evaluation  | Pending                         | Not started | —          |
 | Mongoose 8 evaluation  | Pending                         | Not started | —          |
 
@@ -45,14 +45,15 @@ Updated: 2026-07-23
 - Updated Socket.IO alone from 2.1.1 to 4.8.3, preserving Engine.IO 3 client compatibility.
 - Updated Twilio alone from 3.23.1 to 6.0.2; the lazy client and message API contract remain unchanged.
 - Updated Mailjet alone from 3.3.1 to 6.0.11 and retained credential-optional application startup.
+- Removed dormant Nodemailer; Mailjet remains the only active email provider SDK.
 
 ## Pending
 
-- Upgrade external SDKs one at a time, each with its own validation and commit.
+- Evaluate Mongoose 7 compatibility without changing the committed Mongoose 6 baseline until validated.
 
 ## Blockers
 
-- External SDK upgrades remain deferred until the Mongoose 6 stage is complete.
+- Live provider sandbox tests still require valid Cloudinary, Twilio, and Mailjet credentials.
 
 ## Validation
 
