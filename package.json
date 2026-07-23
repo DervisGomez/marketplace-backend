@@ -31,7 +31,7 @@
         "jsonwebtoken": "^8.4.0",
         "jwt-simple": "^0.5.5",
         "moment": "^2.22.2",
-        "mongoose": "6.13.10",
+        "mongoose": "7.8.11",
         "morgan": "^1.9.1",
         "multer": "2.2.0",
         "node-mailjet": "6.0.11",

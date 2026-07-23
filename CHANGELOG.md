@@ -1,5 +1,12 @@
 # Changelog
 
+## Mongoose 7.8.11 evaluation
+
+- Evaluated and adopted only Mongoose 7.8.11 from the committed 6.13.10 baseline.
+- Confirmed removed callbacks, write APIs, and ObjectId construction have no remaining active usages.
+- Preserved explicit query and index policies.
+- Confirmed all 222 characterization tests pass without additional source compatibility changes.
+
 ## Nodemailer dependency removal
 
 - Removed dormant Nodemailer; the application uses Mailjet as its active email provider.

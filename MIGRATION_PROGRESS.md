@@ -11,7 +11,7 @@ Updated: 2026-07-23
 | Express 5              | Express 5.2.1                   | Completed   | 222/222    |
 | Mongoose 6             | Mongoose 6.13.10                | Completed   | 222/222    |
 | External SDKs          | Provider SDK set                | Completed   | 222/222    |
-| Mongoose 7 evaluation  | Pending                         | Not started | —          |
+| Mongoose 7 evaluation  | Mongoose 7.8.11                 | Accepted    | 222/222    |
 | Mongoose 8 evaluation  | Pending                         | Not started | —          |
 
 ## Completed
@@ -46,10 +46,11 @@ Updated: 2026-07-23
 - Updated Twilio alone from 3.23.1 to 6.0.2; the lazy client and message API contract remain unchanged.
 - Updated Mailjet alone from 3.3.1 to 6.0.11 and retained credential-optional application startup.
 - Removed dormant Nodemailer; Mailjet remains the only active email provider SDK.
+- Evaluated and adopted Mongoose 7.8.11 with no additional contract changes.
 
 ## Pending
 
-- Evaluate Mongoose 7 compatibility without changing the committed Mongoose 6 baseline until validated.
+- Evaluate Mongoose 8 compatibility from the committed Mongoose 7 baseline.
 
 ## Blockers
 
