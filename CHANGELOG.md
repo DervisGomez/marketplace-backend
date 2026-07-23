@@ -1,5 +1,13 @@
 # Changelog
 
+## Mailjet 6.0.11
+
+- Updated only `node-mailjet` from 3.3.1 to 6.0.11.
+- Migrated client construction from `connect()` to `apiConnect()`.
+- Made client creation lazy so missing provider credentials do not prevent application startup.
+- Preserved the existing send endpoint, payload, result DTO, and error mapping.
+- Confirmed all 222 characterization tests pass.
+
 ## Twilio 6.0.2
 
 - Updated only Twilio from 3.23.1 to 6.0.2.
