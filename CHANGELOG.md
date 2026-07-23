@@ -1,5 +1,13 @@
 # Changelog
 
+## Incremental TypeScript migration: infrastructure HTTP
+
+- Added a strict TypeScript build that emits CommonJS-compatible modules.
+- Migrated the three shared HTTP infrastructure implementations to TypeScript.
+- Retained stable JavaScript bridges for all existing CommonJS consumers.
+- Added build/typecheck lifecycle scripts and migration progress documentation.
+- Confirmed all 222 characterization tests and all 134 routes remain unchanged.
+
 ## Mongoose 8.24.1 evaluation
 
 - Evaluated and adopted only Mongoose 8.24.1 from the committed 7.8.11 baseline.

@@ -1,3 +1,1 @@
-const express = require('express');
-
-module.exports = () => express.Router();
+module.exports = require('../../../dist/src/infrastructure/http/createRouter');
