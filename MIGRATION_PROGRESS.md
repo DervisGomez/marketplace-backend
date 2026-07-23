@@ -42,6 +42,7 @@ Updated: 2026-07-23
 - Removed the dormant Redis 2 dependency; no executable Redis integration existed.
 - Updated Multer alone from 1.4.1 to 2.2.0 and retained the existing disk-storage contract.
 - Updated Cloudinary alone from 1.14.0 to 2.10.0 and consolidated configuration on the `v2` API.
+- Updated Socket.IO alone from 2.1.1 to 4.8.3, preserving Engine.IO 3 client compatibility.
 
 ## Pending
 

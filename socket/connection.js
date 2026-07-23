@@ -38,9 +38,9 @@ exports.socket = (io, socket) => {
 
     socket.on('isconection', data => {
         logger.debug(data);
-        var room = io.sockets.adapter.rooms[data.user];
+        var room = io.sockets.adapter.rooms.get(data.user);
         if (room) {
-            socket.emit('isconection', room.length);
+            socket.emit('isconection', room.size);
         } else {
             socket.emit('isconection', 0);
         }

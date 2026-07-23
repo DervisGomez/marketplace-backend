@@ -1,5 +1,12 @@
 # Changelog
 
+## Socket.IO 4.8.3
+
+- Updated only Socket.IO from 2.1.1 to 4.8.3.
+- Migrated server construction and room-size access to the current API.
+- Enabled `allowEIO3` to preserve compatibility with existing Socket.IO 2 clients.
+- Confirmed server initialization and all 222 characterization tests pass.
+
 ## Cloudinary 2.10.0
 
 - Updated only Cloudinary from 1.14.0 to 2.10.0.
