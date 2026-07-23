@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`bank HTTP characterization > 'delete' '/api/bank' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "bank": {
+        "deletedCount": 0,
+        "n": 0,
+        "ok": 1,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`bank HTTP characterization > 'get' '/api/bank' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "bank": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`bank HTTP characterization > 'post' '/api/bank' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "_message": "bank validation failed",
+        "errors": {
+          "logo": {
+            "kind": "required",
+            "message": "Logo es obligatorio.",
+            "name": "ValidatorError",
+            "path": "logo",
+            "properties": {
+              "message": "Logo es obligatorio.",
+              "path": "logo",
+              "type": "required",
+            },
+          },
+        },
+        "message": "bank validation failed: logo: Logo es obligatorio.",
+        "name": "ValidationError",
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`bank HTTP characterization > 'put' '/api/bank' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "bank": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

@@ -1,0 +1,33 @@
+{
+    "all": true,
+    "include": ["src/**/*.{ts,js}", "dist/src/**/*.js"],
+    "extension": [".ts", ".js"],
+    "excludeAfterRemap": true,
+    "exclude": [
+        "src/**/*.d.ts",
+        "src/config/*.js",
+        "src/infrastructure/**/*.js",
+        "src/modules/*/infrastructure/mongoose/schemas/*.js",
+        "src/modules/*/presentation/controllers/*.js",
+        "src/modules/buy/domain/entities/Payment.js",
+        "src/shared/infrastructure/mongoose/*.js",
+        "src/shared/pagination/*.js",
+        "src/shared/presentation/dto/*.js",
+        "src/buy/buyCtrl.js",
+        "src/buy/buyRouter.js",
+        "src/file/fileCtrl.js",
+        "src/notification/notificationCtrl.js",
+        "src/notification/notificationRouter.js",
+        "src/payment/paymentCtrl.js",
+        "src/payment/paymentRouter.js",
+        "src/product/productCtrl.js",
+        "src/product/productRouter.js",
+        "src/product/record.js",
+        "src/question/questionCtrl.js",
+        "src/question/questionRouter.js",
+        "src/user/userCtrl.js",
+        "src/user/userRouter.js"
+    ],
+    "reporter": ["text", "html", "lcov"],
+    "reportsDirectory": "coverage"
+}

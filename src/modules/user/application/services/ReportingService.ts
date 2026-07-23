@@ -98,7 +98,7 @@ module.exports = {
                     date.setDate(date.getDate() - 3000);
                     break;
             }
-            globalThis.group = { type: '$status' };
+            const group = { type: '$status' };
             let users = await User.find({ $or: [{ status: 1 }, { status: 2 }], createdAt: { $gt: date } });
 
             res.status(200).json({ status: 1, data: { users } });

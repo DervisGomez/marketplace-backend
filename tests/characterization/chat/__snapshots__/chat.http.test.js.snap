@@ -1,0 +1,91 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`chat HTTP characterization > 'get' '/api/chat' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`chat HTTP characterization > 'get' '/api/chat/admin' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "chats": [],
+      "numPages": 1,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`chat HTTP characterization > 'get' '/api/chat/find' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "chat": null,
+      "message": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`chat HTTP characterization > 'post' '/api/chat' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "_id": "<object-id>",
+      "chat": "<object-id>",
+      "createdAt": "<date>",
+      "message": "test",
+      "status": 1,
+      "type": "test",
+      "user": "<object-id>",
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`chat HTTP characterization > 'put' '/api/chat/end' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "chat": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;
+
+exports[`chat HTTP characterization > 'put' '/api/chat/take' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "chat": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 200,
+}
+`;

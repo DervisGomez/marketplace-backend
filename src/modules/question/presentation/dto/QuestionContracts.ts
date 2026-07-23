@@ -32,9 +32,4 @@ type QuestionHandler = (
     next: NextFunction
 ) => Promise<unknown> | unknown;
 
-declare global {
-    var notification: unknown;
-    var numPages: number;
-}
-
 export type { QuestionHandler, QuestionHttpRequest, QuestionRequestBody, QuestionRequestQuery };

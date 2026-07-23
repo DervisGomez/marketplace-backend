@@ -79,7 +79,7 @@ module.exports = {
     outstanding: async (req, res) => {
         try {
             let count = await Product.countDocuments({ status: 1, highlight: 'highlight' });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let product = await Product.find(
                 { status: 1, highlight: 'highlight' },
@@ -97,7 +97,7 @@ module.exports = {
     last: async (req, res) => {
         try {
             let count = await Product.countDocuments({ status: 1 });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let product = await Product.find(
                 { status: 1 },
@@ -115,7 +115,7 @@ module.exports = {
     sold: async (req, res) => {
         try {
             let count = await Product.countDocuments({ status: 1, quantitySold: { $gt: 0 } });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let product = await Product.find(
                 { status: 1, quantitySold: { $gt: 0 } },

@@ -11,6 +11,8 @@ const MagicNumbers = require('../../../../../../src/modules/user/shared/constant
 import type { Response } from 'express';
 import type { UserServiceHandler } from '../dtos/UserContracts';
 
+const userData = { password: 0, passwordFailures: 0, __v: 0 };
+
 async function validateErr(res: Response, err: unknown): Promise<void> {
     logger.error({ err: err }, 'Legacy operation failed');
     let errors = await Validate.required(err);

@@ -1,0 +1,305 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`category HTTP characterization > 'delete' '/api/category' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "category": {
+        "deletedCount": 0,
+        "n": 0,
+        "ok": 1,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'delete' '/api/category/sub' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "subcategory": {
+        "deletedCount": 0,
+        "n": 0,
+        "ok": 1,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'get' '/api/category/list' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'get' '/api/category/list/record' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "category": [],
+      "record": {
+        "bank": 0,
+        "category": {
+          "bank": 0,
+          "color": "black",
+          "count": 0,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 1,
+          "max": 0,
+          "money": 0,
+          "name": "Vendedor nuevo",
+          "official": 8,
+        },
+        "categoryNext": {
+          "bank": 0,
+          "color": "fuchsia",
+          "count": 2,
+          "gain": 8,
+          "highlight": 10,
+          "highlightGain": 10,
+          "id": 2,
+          "max": 0,
+          "money": 0,
+          "name": "Vendedor principiante",
+          "official": 8,
+        },
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'get' '/api/category/list-home' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "category": [],
+      "product": [],
+      "productHighlight": [],
+      "productQuantity": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'get' '/api/category/load' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "name": "Teléfonos y Tablets",
+        "subcategory": [
+          "Teléfonos - Celulares",
+          "Tablets",
+          "Accesorios para celulares",
+        ],
+      },
+      {
+        "name": "TV, Audio, Video y Cámaras",
+        "subcategory": [
+          "TV - Proyectores - Video beams",
+          "Reproductores de Video",
+          "Audio",
+          "Cámaras y accesorios",
+        ],
+      },
+      {
+        "name": "Computadores y Portátiles",
+        "subcategory": [
+          "Computadoras de escritorio",
+          "Portátiles - Laptops",
+          "Impresoras - Scanners - Multifuncionales",
+          "Monitores",
+          "Accesorios - Componentes - Otros",
+        ],
+      },
+      {
+        "name": "Video juegos y Consolas",
+        "subcategory": [
+          "Consolas",
+          "Video juegos",
+          "Accesorios - Otros",
+        ],
+      },
+      {
+        "name": "Muebles, Hogar y Jardin",
+        "subcategory": [
+          "Muebles",
+          "Almacenes - Oficinas",
+          "Decoración",
+          "Jardines - Exteriores",
+          "Accesorios - Otros",
+          "Bricolaje - Mejorar tu casa",
+        ],
+      },
+      {
+        "name": "Electrodomésticos",
+        "subcategory": [
+          "Cocina",
+          "Neveras - Congeladores",
+          "Lavadoras - Secadoras",
+          "Aires acondicionados - Ventiladores",
+          "Calefacción",
+          "Otros electrodomésticos",
+        ],
+      },
+      {
+        "name": "Deportes y Bicicletas",
+        "subcategory": [
+          "Bicicletas - Ciclismo",
+          "Gimnasio - Fitness",
+          "Fútbol",
+          "Otros deportes - Equipos",
+        ],
+      },
+      {
+        "name": "Juguetes",
+        "subcategory": [
+          "Cunas - Cama cunas",
+          "Cochecitos",
+          "Juegos - Juguetes",
+          "Ropa",
+          "Calzado",
+          "Otros",
+        ],
+      },
+      {
+        "name": "Moda y Belleza",
+        "subcategory": [
+          "Ropa",
+          "Belleza",
+          "Zapatos",
+          "Accesorios",
+        ],
+      },
+      {
+        "name": "Hobbies, Músic, Arte y Libros",
+        "subcategory": [
+          "Instrumentos Musicales",
+          "Juegos - Actividades de Ocio",
+          "Libros - CDs - DVDs",
+          "Arte - Antigüedades",
+          "Manualidades",
+        ],
+      },
+      {
+        "name": "Animales y Mascotas",
+        "subcategory": [
+          "Perros",
+          "Gatos",
+          "Otros Animales",
+          "Accesorios para Mascotas",
+        ],
+      },
+      {
+        "name": "Maquinaria y Herramientas",
+        "subcategory": [
+          "Maquinaria industrial",
+          "Maquinaria agrícola",
+          "Herramientas",
+        ],
+      },
+    ],
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'post' '/api/category' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "category": {
+        "_id": "<object-id>",
+        "createdAt": "<date>",
+        "father": 1,
+        "name": "Test",
+        "status": 1,
+        "subcategory": [],
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'post' '/api/category/sub' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "subcategory": {
+        "_id": "<object-id>",
+        "createdAt": "<date>",
+        "father": 0,
+        "name": "Test",
+        "status": 1,
+        "subcategory": [],
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'put' '/api/category' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "category": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`category HTTP characterization > 'put' '/api/category/sub' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "category": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

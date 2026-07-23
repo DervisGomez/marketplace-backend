@@ -1,0 +1,13 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`denounce HTTP characterization > 'post' '/api/denounce' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": null,
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

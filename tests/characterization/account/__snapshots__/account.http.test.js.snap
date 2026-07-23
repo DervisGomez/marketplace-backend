@@ -1,0 +1,78 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`account HTTP characterization > 'delete' '/api/account' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "account": {
+        "deletedCount": 0,
+        "n": 0,
+        "ok": 1,
+      },
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`account HTTP characterization > 'get' '/api/account' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "account": [],
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;
+
+exports[`account HTTP characterization > 'post' '/api/account' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "_message": "account validation failed",
+        "errors": {
+          "number": {
+            "kind": "required",
+            "message": "Número de cuenta es obligatorio.",
+            "name": "ValidatorError",
+            "path": "number",
+            "properties": {
+              "message": "Número de cuenta es obligatorio.",
+              "path": "number",
+              "type": "required",
+            },
+          },
+        },
+        "message": "account validation failed: number: Número de cuenta es obligatorio.",
+        "name": "ValidationError",
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;
+
+exports[`account HTTP characterization > 'put' '/api/account' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": {
+      "account": null,
+    },
+    "status": 1,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 201,
+}
+`;

@@ -1,0 +1,32 @@
+// Vitest Snapshot v1, https://vitest.dev/guide/snapshot.html
+
+exports[`invest HTTP characterization > 'post' '/api/invest' preserves its observable contract 1`] = `
+{
+  "body": {
+    "data": [
+      {
+        "_message": "invest validation failed",
+        "errors": {
+          "hour": {
+            "kind": "required",
+            "message": "Nombre es obligatorio.",
+            "name": "ValidatorError",
+            "path": "hour",
+            "properties": {
+              "message": "Nombre es obligatorio.",
+              "path": "hour",
+              "type": "required",
+            },
+          },
+        },
+        "message": "invest validation failed: hour: Nombre es obligatorio.",
+        "name": "ValidationError",
+      },
+    ],
+    "status": 0,
+  },
+  "contentType": "application/json; charset=utf-8",
+  "cors": "*",
+  "status": 500,
+}
+`;

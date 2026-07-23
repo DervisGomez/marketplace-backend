@@ -345,14 +345,12 @@ exports[`user HTTP characterization > 'put' '/api/user/document' preserves its o
 exports[`user HTTP characterization > 'put' '/api/user/email' preserves its observable contract 1`] = `
 {
   "body": {
-    "data": [
-      {},
-    ],
-    "status": 0,
+    "data": "<object-id>",
+    "status": 1,
   },
   "contentType": "application/json; charset=utf-8",
   "cors": "*",
-  "status": 500,
+  "status": 200,
 }
 `;
 
@@ -443,14 +441,12 @@ exports[`user HTTP characterization > 'put' '/api/user/password' preserves its o
 exports[`user HTTP characterization > 'put' '/api/user/phone' preserves its observable contract 1`] = `
 {
   "body": {
-    "data": [
-      {},
-    ],
-    "status": 0,
+    "data": "<object-id>",
+    "status": 1,
   },
   "contentType": "application/json; charset=utf-8",
   "cors": "*",
-  "status": 500,
+  "status": 200,
 }
 `;
 

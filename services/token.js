@@ -16,7 +16,7 @@ module.exports = {
     encode: (user, days) => {
         return createToken(user, days);
     },
-    decode: async token => {
+    decode: async (token, next) => {
         if (token) {
             try {
                 const payload = jwt.decode(token, global.config.token.secret);

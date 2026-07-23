@@ -3,6 +3,7 @@ const User = require('../../repositories/UserRepository');
 const Code = require('../../repositories/CodeRepository');
 const Message = require('../../../../../../../services/message');
 const EmailService = require('../../../../../../../services/email');
+const RandString = require('../../../../../../../services/randString');
 
 const userData = { password: 0, passwordFailures: 0, __v: 0 };
 import type { UserServiceHandler } from '../../dtos/UserContracts';

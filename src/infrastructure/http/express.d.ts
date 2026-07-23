@@ -1,6 +1,4 @@
 declare global {
-    var image: unknown;
-
     namespace Express {
         interface Request {
             requestId?: string;
@@ -19,7 +17,5 @@ declare global {
         }
     }
 }
-
-declare var image: unknown;
 
 export {};

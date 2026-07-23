@@ -59,7 +59,7 @@ module.exports = {
     favorite: async (req, res) => {
         try {
             let count = await Product.countDocuments({ favorite: req.user._id });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let product = await Product.find({ favorite: req.user._id }, productData)
                 .populate('user', { city: 1, department: 1 })

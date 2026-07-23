@@ -26,7 +26,7 @@ module.exports = {
             let category = await Category.findById(req.query._id);
 
             let count = await Product.countDocuments({ category: { $in: category.subcategory } });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
 
             let product = await Product.find({ category: { $in: category.subcategory } }, productData)
@@ -42,7 +42,7 @@ module.exports = {
     subcategory: async (req, res) => {
         try {
             let count = await Product.countDocuments({ category: req.query._id });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
 
             let product = await Product.find({ category: req.query._id }, productData)
@@ -124,7 +124,7 @@ module.exports = {
             }*/
 
             let count = await Product.countDocuments(filter);
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
 
             let filterCategory = await Product.aggregate([
@@ -260,7 +260,7 @@ module.exports = {
             }
 
             let count = await Product.countDocuments(filter);
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
 
             let product = await Product.find(filter, productData)

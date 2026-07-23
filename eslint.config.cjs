@@ -1,3 +1,6 @@
+const babelParser = require('@babel/eslint-parser');
+const eslintJs = require('@eslint/js');
+
 const nodeGlobals = {
     Buffer: 'readonly',
     URL: 'readonly',
@@ -35,6 +38,7 @@ module.exports = [
     {
         ignores: [
             'coverage/**',
+            'dist/**',
             'node_modules/**',
             'uploads/**',
             '**/__snapshots__/**',
@@ -54,26 +58,26 @@ module.exports = [
             reportUnusedDisableDirectives: 'off'
         },
         rules: {
-            'constructor-super': 'warn',
-            'getter-return': 'warn',
-            'no-class-assign': 'warn',
-            'no-const-assign': 'warn',
-            'no-dupe-args': 'warn',
-            'no-dupe-keys': 'warn',
-            'no-ex-assign': 'warn',
-            'no-func-assign': 'warn',
-            'no-import-assign': 'warn',
-            'no-new-native-nonconstructor': 'warn',
-            'no-obj-calls': 'warn',
-            'no-self-assign': 'warn',
-            'no-setter-return': 'warn',
-            'no-sparse-arrays': 'warn',
-            'no-undef': 'warn',
-            'no-unexpected-multiline': 'warn',
-            'no-unreachable': 'warn',
-            'no-unsafe-finally': 'warn',
-            'use-isnan': 'warn',
-            'valid-typeof': 'warn',
+            'constructor-super': 'error',
+            'getter-return': 'error',
+            'no-class-assign': 'error',
+            'no-const-assign': 'error',
+            'no-dupe-args': 'error',
+            'no-dupe-keys': 'error',
+            'no-ex-assign': 'error',
+            'no-func-assign': 'error',
+            'no-import-assign': 'error',
+            'no-new-native-nonconstructor': 'error',
+            'no-obj-calls': 'error',
+            'no-self-assign': 'error',
+            'no-setter-return': 'error',
+            'no-sparse-arrays': 'error',
+            'no-undef': 'error',
+            'no-unexpected-multiline': 'error',
+            'no-unreachable': 'error',
+            'no-unsafe-finally': 'error',
+            'use-isnan': 'error',
+            'valid-typeof': 'error',
 
             'array-callback-return': 'off',
             camelcase: 'off',
@@ -91,6 +95,52 @@ module.exports = [
             'no-var': 'off',
             'prefer-const': 'off',
             'require-await': 'off'
+        }
+    },
+    {
+        files: ['src/**/*.ts'],
+        languageOptions: {
+            ecmaVersion: 2022,
+            sourceType: 'module',
+            globals: nodeGlobals,
+            parser: babelParser,
+            parserOptions: {
+                requireConfigFile: false,
+                babelOptions: {
+                    parserOpts: {
+                        plugins: ['typescript']
+                    }
+                }
+            }
+        },
+        linterOptions: {
+            reportUnusedDisableDirectives: 'error'
+        },
+        rules: {
+            ...eslintJs.configs.recommended.rules,
+            'constructor-super': 'error',
+            'getter-return': 'error',
+            'no-class-assign': 'error',
+            'no-const-assign': 'error',
+            'no-dupe-args': 'error',
+            'no-dupe-keys': 'error',
+            'no-ex-assign': 'error',
+            'no-func-assign': 'error',
+            'no-import-assign': 'error',
+            'no-new-native-nonconstructor': 'error',
+            'no-obj-calls': 'error',
+            'no-self-assign': 'error',
+            'no-setter-return': 'error',
+            'no-sparse-arrays': 'error',
+            'no-unexpected-multiline': 'error',
+            'no-unreachable': 'error',
+            'no-unsafe-finally': 'error',
+            'use-isnan': 'error',
+            'valid-typeof': 'error',
+
+            complexity: ['warn', 25],
+            'no-unused-vars': 'off',
+            'no-undef': 'off'
         }
     },
     {

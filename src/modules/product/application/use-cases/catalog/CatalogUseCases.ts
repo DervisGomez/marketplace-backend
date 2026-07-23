@@ -34,7 +34,7 @@ module.exports = {
             let match = { user: toObjectId(req.user._id) };
             let counts = await Product.aggregate([{ $match: match }, { $group: { _id: group, count: { $sum: 1 } } }]);
             let count = await Product.countDocuments({ user: req.user._id, status: req.query.status });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let product = await Product.find({ user: req.user._id, status: req.query.status }, productData)
                 .skip(skip)
@@ -49,7 +49,7 @@ module.exports = {
     user: async (req, res) => {
         try {
             let count = await Product.countDocuments({ user: req.query.user });
-            numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let product = await Product.find({ user: req.query.user, status: 1 }, productData)
                 .skip(skip)
@@ -82,7 +82,7 @@ module.exports = {
             )
                 .sort({ $natural: -1 })
                 .limit(4);
-            group = { type: '$qualifySeller' };
+            let group = { type: '$qualifySeller' };
             let match = { user: product.user._id };
             let sales = await Buy.aggregate([{ $match: match }, { $group: { _id: group, count: { $sum: 1 } } }]);
             let record = await ReputationGateway.calculate(product.user._id);
@@ -114,7 +114,7 @@ module.exports = {
                 )
                     .sort({ $natural: -1 })
                     .limit(4);
-                group = { type: '$qualifySeller' };
+                let group = { type: '$qualifySeller' };
                 let match = { user: product.user._id };
                 let sales = await Buy.aggregate([{ $match: match }, { $group: { _id: group, count: { $sum: 1 } } }]);
                 let record = await ReputationGateway.calculate(product.user._id);

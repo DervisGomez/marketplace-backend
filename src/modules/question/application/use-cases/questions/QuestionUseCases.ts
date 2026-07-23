@@ -17,10 +17,10 @@ module.exports = {
                 description: req.body.question,
                 type: 'question'
             });
-            globalThis.notification = await notif.save();
+            let notification = await notif.save();
             res.status(201).json({
                 status: 1,
-                data: { question, notification: globalThis.notification },
+                data: { question, notification },
                 token: req.token
             });
         } catch (err) {
@@ -32,14 +32,14 @@ module.exports = {
         try {
             logger.debug('d');
             let count = await Question.countDocuments({ product: req.query._id });
-            globalThis.numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = parseInt(req.query.skip) * parseInt(req.query.limit);
             let questions = await Question.find({ product: req.query._id })
                 .populate('client', { userName: 1, createdAt: 1, recordBuyer: 1 })
                 .skip(skip)
                 .limit(parseInt(req.query.limit))
                 .sort({ $natural: -1 });
-            res.status(201).json({ status: 1, data: { questions, numPages: globalThis.numPages }, token: req.token });
+            res.status(201).json({ status: 1, data: { questions, numPages }, token: req.token });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
             res.status(500).json({ status: 0, data: [err] });
@@ -48,7 +48,7 @@ module.exports = {
     user: async (req, res) => {
         try {
             let count = await Question.countDocuments({ user: req.user._id, status: 1 });
-            globalThis.numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let questions = await Question.find({ user: req.user._id, status: 1 })
                 .populate('client', { userName: 1, createdAt: 1, photo: 1, recordBuyer: 1 })
@@ -98,7 +98,7 @@ module.exports = {
             ]);*/
             res.status(201).json({
                 status: 1,
-                data: { questions2: questions2, numPages: globalThis.numPages, questions: questions },
+                data: { questions2: questions2, numPages, questions: questions },
                 token: req.token
             });
         } catch (err) {
@@ -109,7 +109,7 @@ module.exports = {
     client: async (req, res) => {
         try {
             let count = await Question.countDocuments({ client: req.user._id });
-            globalThis.numPages = parseInt(String(count / Number(req.query.limit) + 1));
+            let numPages = parseInt(String(count / Number(req.query.limit) + 1));
             let skip = (parseInt(req.query.skip) - 1) * parseInt(req.query.limit);
             let questions = await Question.find({ client: req.user._id })
                 .populate('user', { userName: 1, createdAt: 1, photo: 1, record: 1 })
@@ -136,7 +136,7 @@ module.exports = {
             }*/
             res.status(201).json({
                 status: 1,
-                data: { numPages: globalThis.numPages, questions: questions },
+                data: { numPages, questions: questions },
                 token: req.token
             });
         } catch (err) {

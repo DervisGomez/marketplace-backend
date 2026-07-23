@@ -9,7 +9,8 @@ const useCases: Readonly<Record<string, BuyHandler>> = {
     newComment: async (req, res) => {
         try {
             if (req.type == 'img') {
-                req.body.message == (await FileGateway.uploadImage(globalThis.image));
+                const image = req.body.image;
+                req.body.message == (await FileGateway.uploadImage(image));
             }
             let newComment = await Message.create(req.body);
             let comment = await newComment.save();

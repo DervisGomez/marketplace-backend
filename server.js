@@ -2,17 +2,20 @@ require('dotenv').config();
 const logger = require('./src/infrastructure/logging/logger');
 
 let { app } = require('./app');
-
-let server = require('http').createServer(app);
+let db = require('mongoose');
+let createServer = require('http').createServer;
 const { Server } = require('socket.io');
-
-server.listen(app.get('port'), () => {
-    logger.info({ port: app.get('port') }, 'HTTP server listening');
-});
-
 let Connection = require('./socket/connection');
-let io = new Server(server, { allowEIO3: true });
+let startServer = require('./src/infrastructure/http/startServer');
 
-io.on('connection', socket => {
-    Connection.socket(io, socket);
+startServer({
+    app,
+    db,
+    logger,
+    mongoUri: global.config.db.port,
+    createServer,
+    SocketServer: Server,
+    connection: Connection
+}).catch(() => {
+    process.exitCode = 1;
 });

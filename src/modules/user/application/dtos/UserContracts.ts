@@ -74,7 +74,6 @@ declare global {
         };
     };
 
-    var group: Readonly<Record<string, unknown>>;
     var RandString: {
         readonly create: (length: number) => string;
     };
