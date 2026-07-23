@@ -1,31 +1,11 @@
 import mongoose = require('mongoose');
+import type {
+    LegacyCastError,
+    LegacyMongoError as MongoErrorLike,
+    LegacyValidationError as ValidationErrorLike
+} from '../../shared/contracts/ErrorContract';
 
 type JsonObject = Record<string, unknown>;
-
-interface LegacyCastError {
-    kind: string;
-    message?: string;
-    name: string;
-    path: string;
-    reason?: { name?: string };
-    stringValue: string;
-    value: unknown;
-}
-
-interface ValidationErrorLike {
-    errors: Record<string, LegacyCastError>;
-    message?: string;
-    name: 'ValidationError';
-}
-
-interface MongoErrorLike {
-    code?: number;
-    codeName?: string;
-    errmsg?: string;
-    message?: string;
-    name: 'MongoError' | 'MongoServerError';
-    ok?: number;
-}
 
 function clone<T>(value: unknown): T {
     return JSON.parse(JSON.stringify(value)) as T;

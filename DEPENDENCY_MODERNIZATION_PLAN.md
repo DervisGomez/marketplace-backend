@@ -19,6 +19,22 @@ All identified compatibility blockers are resolved: removed write APIs and callb
 construction, projections, immutable query handling, parser policy, async routing, write-result DTOs, and
 driver-error DTOs. `body-parser`, `express-promise-router`, Redis, and Nodemailer have been removed.
 
+## Final business-wave verification (2026-07-23)
+
+Product, Buy, Payment, User, Question, Notification, File, and Record were re-audited after their strict
+TypeScript migration. Within these completed business scopes:
+
+- deprecated Mongoose `remove()` and `update()` calls: **0**;
+- legacy Mongoose query callbacks: **0**;
+- incompatible `ObjectId` construction: **0**;
+- deprecated Buffer constructors: **0**;
+- direct `req.query` mutation: **0**;
+- legacy `fields` query options in migrated persistence code: **0**.
+
+No dependency manifest was changed in this wave. Typecheck, build, all 222 characterization tests, and the
+134-route inventory pass with the eight required CommonJS entry bridges enabled; 102 redundant internal
+bridges were removed and no new bridges were introduced.
+
 The audit below is retained as historical migration evidence. Counts and version statements in the
 historical sections describe the pre-implementation baseline.
 
