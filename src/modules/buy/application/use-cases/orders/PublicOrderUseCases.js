@@ -1,4 +1,5 @@
 const logger = require('../../../../../infrastructure/logging/logger');
+const serializeLegacyError = require('../../../../../infrastructure/http/serializeLegacyError');
 const Buy = require('../../../infrastructure/mongoose/repositories/BuyRepository');
 
 const productData = {
@@ -104,7 +105,7 @@ module.exports = {
             res.status(200).json({ status: 1, data: { buy } });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [err] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
         }
     }
 };

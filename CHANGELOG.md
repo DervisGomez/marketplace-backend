@@ -1,5 +1,12 @@
 # Changelog
 
+## Mongoose 5.13.23 compatibility
+
+- Updated only Mongoose from 5.6.4 to 5.13.23.
+- Preserved legacy error response JSON for MongoDB and validation failures.
+- Enabled the unified MongoDB topology engine.
+- Confirmed all 222 characterization tests pass on Node.js 22.
+
 All notable changes to this project will be documented in this file.
 
 The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to

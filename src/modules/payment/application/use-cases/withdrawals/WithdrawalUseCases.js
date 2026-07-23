@@ -1,4 +1,5 @@
 const logger = require('../../../../../infrastructure/logging/logger');
+const serializeLegacyError = require('../../../../../infrastructure/http/serializeLegacyError');
 const Payment = require('../../../infrastructure/mongoose/repositories/PaymentRepository');
 const Bank = require('../../../infrastructure/gateways/PaymentRelationsGateway').Bank;
 const toObjectId = require('../../../infrastructure/mongoose/repositories/MongoObjectId');
@@ -30,7 +31,7 @@ module.exports = {
             res.status(200).json({ status: 1, data: true, token: req.token });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [err] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
         }
     },
     listWithdrawals2: async (req, res) => {

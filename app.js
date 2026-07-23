@@ -15,7 +15,8 @@ var cloudinary = require('./middlewares/cloudinary');
 db.connect(global.config.db.port, {
     useCreateIndex: true,
     useFindAndModify: false,
-    useNewUrlParser: true
+    useNewUrlParser: true,
+    useUnifiedTopology: true
 })
     .then(() => logger.info({ database: global.config.db.port }, 'Database connected'))
     .catch(err => logger.error({ err }, 'Database connection failed'));

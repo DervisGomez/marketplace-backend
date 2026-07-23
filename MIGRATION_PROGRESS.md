@@ -2,6 +2,18 @@
 
 Updated: 2026-07-23
 
+## Upgrade stages
+
+| Stage                  | Version                         | Status      | Validation |
+| ---------------------- | ------------------------------- | ----------- | ---------- |
+| Compatibility baseline | Express 4.17.1 / Mongoose 5.6.4 | Completed   | 222/222    |
+| Latest Mongoose 5      | Mongoose 5.13.23                | Completed   | 222/222    |
+| Express 5              | Pending                         | Not started | —          |
+| Mongoose 6             | Pending                         | Not started | —          |
+| External SDKs          | Pending                         | Not started | —          |
+| Mongoose 7 evaluation  | Pending                         | Not started | —          |
+| Mongoose 8 evaluation  | Pending                         | Not started | —          |
+
 ## Completed
 
 - Replaced all active Mongoose `remove()` calls with explicit modern delete operations.
@@ -17,6 +29,9 @@ Updated: 2026-07-23
 - Removed duplicate `body-parser` middleware usage in production and tests.
 - Replaced runtime use of `express-promise-router` with native Express routers and the local async error adapter.
 - Validated the Express compatibility block and final Mongoose block with 222/222 characterization tests.
+- Updated Mongoose alone from 5.6.4 to the final 5.x release, 5.13.23.
+- Preserved legacy `MongoError` and `CastError` JSON serialization through an internal response adapter.
+- Enabled the unified MongoDB topology engine while still on Mongoose 5.
 
 ## Pending
 

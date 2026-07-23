@@ -1,4 +1,5 @@
 const logger = require('../../../../../infrastructure/logging/logger');
+const serializeLegacyError = require('../../../../../infrastructure/http/serializeLegacyError');
 const Product = require('../../../infrastructure/mongoose/repositories/ProductRepository');
 const Category = require('../../../infrastructure/mongoose/repositories/ProductRelationsRepository').Category;
 const toObjectId = require('../../../infrastructure/mongoose/repositories/MongoObjectId');
@@ -218,7 +219,7 @@ module.exports = {
             });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [err] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
         }
     },
     search: async (req, res) => {
@@ -261,7 +262,7 @@ module.exports = {
             res.status(200).json({ status: 1, data: { product, numPages } });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [err] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
         }
     },
     keywords: async (req, res) => {
@@ -274,7 +275,7 @@ module.exports = {
             res.status(200).json({ status: 1, data: product });
         } catch (err) {
             logger.error({ err: err }, 'Legacy operation failed');
-            res.status(500).json({ status: 0, data: [err] });
+            res.status(500).json({ status: 0, data: [serializeLegacyError(err)] });
         }
     }
 };
