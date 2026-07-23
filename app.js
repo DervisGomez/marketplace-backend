@@ -2,7 +2,6 @@ var express = require('express');
 var path = require('path');
 var db = require('mongoose');
 var cookieParser = require('cookie-parser');
-var multer = require('multer');
 var cors = require('cors');
 var apiRouter = require('./src/router');
 var logger = require('./src/infrastructure/logging/logger');

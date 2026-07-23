@@ -40,6 +40,7 @@ Updated: 2026-07-23
 - Disabled startup-time automatic index creation to preserve characterized query behavior.
 - Mapped Mongoose 6 write results and driver errors back to their legacy HTTP DTOs.
 - Removed the dormant Redis 2 dependency; no executable Redis integration existed.
+- Updated Multer alone from 1.4.1 to 2.2.0 and retained the existing disk-storage contract.
 
 ## Pending
 

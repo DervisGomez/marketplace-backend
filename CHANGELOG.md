@@ -1,5 +1,12 @@
 # Changelog
 
+## Multer 2.2.0
+
+- Updated only Multer from 1.4.1 to 2.2.0.
+- Preserved the existing destination and generated filename behavior.
+- Removed an unused application-level Multer import.
+- Confirmed all 222 characterization tests pass.
+
 ## Redis dependency removal
 
 - Removed the unused Redis 2 client instead of introducing a new major with no active consumer.
