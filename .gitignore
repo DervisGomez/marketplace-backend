@@ -1,5 +1,8 @@
 node_modules
 coverage/
+reports/
+release/
+downloaded-artifacts/
 uploads
 .env
 .env.local

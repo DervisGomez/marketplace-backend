@@ -1,0 +1,90 @@
+name: Release
+
+on:
+  push:
+    tags:
+      - 'v*'
+
+permissions:
+  contents: write
+
+concurrency:
+  group: release-${{ github.ref }}
+  cancel-in-progress: false
+
+jobs:
+  quality:
+    name: Validate release candidate
+    uses: ./.github/workflows/ci.yml
+
+  release:
+    name: Create GitHub Release
+    needs: quality
+    runs-on: ubuntu-latest
+    timeout-minutes: 15
+
+    steps:
+      - name: Checkout tagged revision
+        uses: actions/checkout@v4
+        with:
+          fetch-depth: 0
+
+      - name: Validate Semantic Version tag
+        shell: bash
+        run: |
+          if [[ ! "$GITHUB_REF_NAME" =~ ^v(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)\.(0|[1-9][0-9]*)(-[0-9A-Za-z.-]+)?(\+[0-9A-Za-z.-]+)?$ ]]; then
+            echo "Invalid Semantic Version tag: $GITHUB_REF_NAME"
+            exit 1
+          fi
+
+      - name: Download CI artifacts
+        uses: actions/download-artifact@v4
+        with:
+          pattern: '*-${{ github.sha }}'
+          path: downloaded-artifacts
+
+      - name: Prepare release assets
+        run: |
+          mkdir -p release-assets
+          cp \
+            downloaded-artifacts/release-package-${{ github.sha }}/veyco-backend-source.tar.gz \
+            release-assets/veyco-backend-${GITHUB_REF_NAME}.tar.gz
+          cp \
+            downloaded-artifacts/test-reports-${{ github.sha }}/junit.xml \
+            release-assets/test-results-${GITHUB_REF_NAME}.xml
+          tar \
+            -czf release-assets/coverage-${GITHUB_REF_NAME}.tar.gz \
+            -C downloaded-artifacts/coverage-report-${{ github.sha }} \
+            .
+
+      - name: Create GitHub Release
+        env:
+          GH_TOKEN: ${{ github.token }}
+        run: |
+          gh release create "$GITHUB_REF_NAME" \
+            release-assets/veyco-backend-${GITHUB_REF_NAME}.tar.gz \
+            release-assets/test-results-${GITHUB_REF_NAME}.xml \
+            release-assets/coverage-${GITHUB_REF_NAME}.tar.gz \
+            --title "$GITHUB_REF_NAME" \
+            --generate-notes \
+            --verify-tag
+
+      - name: Publish release workflow artifacts
+        uses: actions/upload-artifact@v4
+        with:
+          name: github-release-assets-${{ github.ref_name }}
+          path: release-assets/
+          if-no-files-found: error
+          retention-days: 90
+
+      - name: Generate release summary
+        run: |
+          {
+            echo "## Release created"
+            echo
+            echo "- Version: \`${GITHUB_REF_NAME}\`"
+            echo "- Source package: \`veyco-backend-${GITHUB_REF_NAME}.tar.gz\`"
+            echo "- Test report: \`test-results-${GITHUB_REF_NAME}.xml\`"
+            echo "- Coverage report: \`coverage-${GITHUB_REF_NAME}.tar.gz\`"
+            echo "- Deployment: not executed"
+          } >> "$GITHUB_STEP_SUMMARY"

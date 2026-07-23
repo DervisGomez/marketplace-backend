@@ -1,5 +1,9 @@
 # Andamio
 
+[![CI](../../actions/workflows/ci.yml/badge.svg)](../../actions/workflows/ci.yml)
+[![Tests](../../actions/workflows/ci.yml/badge.svg?event=push)](../../actions/workflows/ci.yml)
+[![Node.js 22.13](https://img.shields.io/badge/Node.js-22.13-339933?logo=node.js&logoColor=white)](https://nodejs.org/)
+
 andamio para configuracion de proyecto de una api rest
 
 ## Comenzando 🚀
@@ -112,6 +116,18 @@ _si es desarrollador y contribuira al desarrollo considere el mensaje de respues
 ## Construido con 🛠️
 
 * express - El framework  usado
+
+## Quality Gates
+
+Every push to `master` or `main` and every pull request must pass the main CI pipeline:
+
+- **Lint:** `npm run lint` enforces the ESLint 9 rules.
+- **Format:** `npm run format:check` verifies formatting with Prettier 3.
+- **Tests:** `npm test` runs the 222 characterization tests that protect the observable legacy behavior.
+- **Coverage:** `npm run test:coverage` generates the V8 HTML and LCOV reports.
+
+Successful runs publish the coverage report, JUnit test results, and a source package prepared without
+`node_modules`. See [RELEASE_ENGINEERING.md](./RELEASE_ENGINEERING.md) for the release and versioning process.
 
 ## Autores ✒️
 

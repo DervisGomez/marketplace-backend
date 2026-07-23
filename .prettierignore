@@ -1,0 +1,29 @@
+# Dependencies and generated output
+node_modules/
+coverage/
+uploads/
+package-lock.json
+package.json
+**/__snapshots__/
+
+# Secrets and binary assets
+.env*
+*.pem
+*.key
+*.crt
+
+# Legacy formatting quarantine: remove entries incrementally.
+src/
+services/
+middlewares/
+socket/
+tests/
+app.js
+server.js
+config.js
+vitest.config.js
+.github/
+bin/www
+
+# Historical documentation is not reformatted in Sprint 1B.
+*.md

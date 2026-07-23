@@ -1,0 +1,31 @@
+# Changelog
+
+All notable changes to this project will be documented in this file.
+
+The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/), and this project adheres to
+[Semantic Versioning](https://semver.org/spec/v2.0.0.html).
+
+## [Unreleased]
+
+### Added
+
+- Main CI quality-gate pipeline for Node.js 22.13.
+- JUnit test reports, coverage reports, and source packages as workflow artifacts.
+- Tag-driven GitHub Release workflow with automatically generated release notes.
+- Release Engineering and Semantic Versioning documentation.
+
+## [1.0.0] - 2026-07-22
+
+### Added
+
+- Current marketplace backend baseline.
+- Modular CommonJS architecture on Node.js 22.13 LTS.
+- ESLint 9 and Prettier 3 quality tooling.
+- 222 characterization tests protecting the observable legacy behavior.
+- V8 coverage reporting.
+
+### Notes
+
+- This version records the current modernization baseline.
+- Releases package the source without `node_modules`.
+- No automated deployment is included.

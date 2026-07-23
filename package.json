@@ -10,7 +10,11 @@
     "dev": "nodemon server.js",
     "test": "vitest run",
     "test:coverage": "vitest run --coverage",
-    "test:watch": "vitest"
+    "test:watch": "vitest",
+    "lint": "eslint .",
+    "lint:fix": "eslint . --fix",
+    "format": "prettier . --write",
+    "format:check": "prettier . --check"
   },
   "dependencies": {
     "bcryptjs": "^2.4.3",
@@ -39,8 +43,10 @@
   },
   "devDependencies": {
     "@vitest/coverage-v8": "^1.6.1",
+    "eslint": "9.39.5",
     "mongodb-memory-server": "^10.1.4",
     "nodemon": "^1.19.1",
+    "prettier": "3.9.6",
     "supertest": "^7.1.1",
     "vitest": "^1.6.1"
   }
