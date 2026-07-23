@@ -40,11 +40,9 @@ Existing Express error handling
 | `correlationId.js` | Reuses a safe incoming request ID or creates a UUID and returns it to the client.               |
 | `requestLogger.js` | Records request and response metadata and request duration.                                     |
 | `errorLogger.js`   | Logs errors passed through Express before delegating to the existing error path.                |
-| `asyncHandler.js`  | Adapts new promise-based handlers to Express `next(err)` without duplicating `try/catch`.       |
 
-The async handler is intentionally not retrofitted into legacy controllers whose `catch` blocks construct
-observable HTTP responses. It is available for new handlers and incremental migrations where
-characterization tests prove equivalence.
+Express 5 forwards rejected promises to the error middleware natively. Legacy controller `catch` blocks
+remain in place where they construct observable HTTP responses.
 
 ## Configuration
 

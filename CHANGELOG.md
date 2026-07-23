@@ -1,5 +1,12 @@
 # Changelog
 
+## Express 5.2.1
+
+- Updated only Express from 4.17.1 to 5.2.1.
+- Removed the unused `body-parser` and `express-promise-router` dependencies.
+- Adopted native Express 5 async rejection forwarding.
+- Preserved all 134 routes and confirmed all 222 characterization tests pass.
+
 ## Mongoose 5.13.23 compatibility
 
 - Updated only Mongoose from 5.6.4 to 5.13.23.
