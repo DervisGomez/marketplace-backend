@@ -1,5 +1,4 @@
 var express = require('express');
-var path = require('path');
 var db = require('mongoose');
 var cookieParser = require('cookie-parser');
 var cors = require('cors');
@@ -9,7 +8,7 @@ var correlationId = require('./src/infrastructure/logging/correlationId');
 var requestLogger = require('./src/infrastructure/logging/requestLogger');
 var errorLogger = require('./src/infrastructure/logging/errorLogger');
 global.config = require('./config');
-var cloudinary = require('./middlewares/cloudinary');
+require('./middlewares/cloudinary');
 
 db.set('strictQuery', false);
 db.set('autoIndex', false);
@@ -17,14 +16,6 @@ db.set('autoIndex', false);
 db.connect(global.config.db.port)
     .then(() => logger.info({ database: global.config.db.port }, 'Database connected'))
     .catch(err => logger.error({ err }, 'Database connection failed'));
-
-var cloudinary = require('cloudinary');
-
-cloudinary.config({
-    cloud_name: global.config.cloudinary.name,
-    api_key: global.config.cloudinary.key,
-    api_secret: global.config.cloudinary.secret
-});
 
 var app = express();
 

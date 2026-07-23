@@ -41,6 +41,7 @@ Updated: 2026-07-23
 - Mapped Mongoose 6 write results and driver errors back to their legacy HTTP DTOs.
 - Removed the dormant Redis 2 dependency; no executable Redis integration existed.
 - Updated Multer alone from 1.4.1 to 2.2.0 and retained the existing disk-storage contract.
+- Updated Cloudinary alone from 1.14.0 to 2.10.0 and consolidated configuration on the `v2` API.
 
 ## Pending
 

@@ -1,5 +1,12 @@
 # Changelog
 
+## Cloudinary 2.10.0
+
+- Updated only Cloudinary from 1.14.0 to 2.10.0.
+- Consolidated duplicate startup configuration on the Cloudinary `v2` API.
+- Preserved upload return values and failure fallbacks.
+- Confirmed all 222 characterization tests pass.
+
 ## Multer 2.2.0
 
 - Updated only Multer from 1.4.1 to 2.2.0.
