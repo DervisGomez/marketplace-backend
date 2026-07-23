@@ -1,5 +1,12 @@
 # Changelog
 
+## Mongoose 8.24.1 evaluation
+
+- Evaluated and adopted only Mongoose 8.24.1 from the committed 7.8.11 baseline.
+- Excluded new MongoDB driver metadata from the legacy HTTP error DTO.
+- Preserved write results, query policy, index policy, status codes, and JSON bodies.
+- Confirmed all 222 characterization tests pass.
+
 ## Mongoose 7.8.11 evaluation
 
 - Evaluated and adopted only Mongoose 7.8.11 from the committed 6.13.10 baseline.

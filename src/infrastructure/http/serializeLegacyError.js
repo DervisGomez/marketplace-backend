@@ -46,7 +46,6 @@ function serializeLegacyError(error, collectionName) {
             errmsg += ` (no such collection '${databaseName}.${collectionName}')`;
         }
         return {
-            ...serialized,
             name: 'MongoError',
             code: error.code,
             codeName: error.codeName,

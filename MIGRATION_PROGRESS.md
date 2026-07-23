@@ -4,15 +4,15 @@ Updated: 2026-07-23
 
 ## Upgrade stages
 
-| Stage                  | Version                         | Status      | Validation |
-| ---------------------- | ------------------------------- | ----------- | ---------- |
-| Compatibility baseline | Express 4.17.1 / Mongoose 5.6.4 | Completed   | 222/222    |
-| Latest Mongoose 5      | Mongoose 5.13.23                | Completed   | 222/222    |
-| Express 5              | Express 5.2.1                   | Completed   | 222/222    |
-| Mongoose 6             | Mongoose 6.13.10                | Completed   | 222/222    |
-| External SDKs          | Provider SDK set                | Completed   | 222/222    |
-| Mongoose 7 evaluation  | Mongoose 7.8.11                 | Accepted    | 222/222    |
-| Mongoose 8 evaluation  | Pending                         | Not started | —          |
+| Stage                  | Version                         | Status    | Validation |
+| ---------------------- | ------------------------------- | --------- | ---------- |
+| Compatibility baseline | Express 4.17.1 / Mongoose 5.6.4 | Completed | 222/222    |
+| Latest Mongoose 5      | Mongoose 5.13.23                | Completed | 222/222    |
+| Express 5              | Express 5.2.1                   | Completed | 222/222    |
+| Mongoose 6             | Mongoose 6.13.10                | Completed | 222/222    |
+| External SDKs          | Provider SDK set                | Completed | 222/222    |
+| Mongoose 7 evaluation  | Mongoose 7.8.11                 | Accepted  | 222/222    |
+| Mongoose 8 evaluation  | Mongoose 8.24.1                 | Accepted  | 222/222    |
 
 ## Completed
 
@@ -47,10 +47,12 @@ Updated: 2026-07-23
 - Updated Mailjet alone from 3.3.1 to 6.0.11 and retained credential-optional application startup.
 - Removed dormant Nodemailer; Mailjet remains the only active email provider SDK.
 - Evaluated and adopted Mongoose 7.8.11 with no additional contract changes.
+- Evaluated and adopted Mongoose 8.24.1; filtered new driver metadata from legacy error DTOs.
 
 ## Pending
 
-- Evaluate Mongoose 8 compatibility from the committed Mongoose 7 baseline.
+- Run live provider sandbox tests when credentials and test accounts are available.
+- Remove Socket.IO `allowEIO3` only after all external clients have migrated from Engine.IO 3.
 
 ## Blockers
 

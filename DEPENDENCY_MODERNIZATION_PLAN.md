@@ -1,28 +1,26 @@
 # Dependency Modernization Plan
 
-## Compatibility implementation status (2026-07-23)
+## Platform execution status (2026-07-23)
 
-The compatibility-only implementation is complete without changing the installed Express or Mongoose
-versions and without changing either dependency manifest.
+The ordered modernization roadmap has been executed through Mongoose 8 evaluation. Every critical
+dependency was changed in isolation, validated with 222/222 characterization tests, documented, and
+committed before the next stage began.
 
-| Incompatibility                        | Status                | Resolution                                                                                                                                   |
-| -------------------------------------- | --------------------- | -------------------------------------------------------------------------------------------------------------------------------------------- |
-| Active `Model.remove()` calls          | Resolved              | Replaced with explicit `deleteOne()`/`deleteMany()` semantics; characterization snapshots protect serialized write results.                  |
-| Active `Model.update()` calls          | Resolved              | Replaced with deliberate `updateOne()`/`updateMany()` semantics; existing one/many behavior is preserved.                                    |
-| Mongoose query callbacks               | Resolved              | The remaining callback flow now uses promises.                                                                                               |
-| `ObjectId` calls without `new`         | Resolved              | Direct construction and the shared adapter use `new ObjectId(value)`.                                                                        |
-| Legacy `fields` update options         | Resolved              | Replaced with `projection` where a projection is required.                                                                                   |
-| Deprecated `findAndModify` path        | Resolved              | `useFindAndModify: false` is enabled on the current Mongoose line.                                                                           |
-| Custom `db.Promise` assignment         | Resolved              | Removed; native promises remain the observable behavior.                                                                                     |
-| Direct `req.query` mutation            | Resolved              | Payment and Question build local filter/update objects.                                                                                      |
-| Implicit query parser selection        | Resolved              | The existing extended parser behavior is explicit in production and characterization apps.                                                   |
-| Duplicate `body-parser` middleware     | Resolved in source    | Express built-in JSON and URL-encoded parsers retain the effective existing policy.                                                          |
-| `express-promise-router` runtime usage | Resolved in source    | Native `express.Router()` is used with the local async error adapter.                                                                        |
-| Removal of obsolete manifest entries   | Pending by constraint | `body-parser` and `express-promise-router` remain declared because this implementation may not modify `package.json` or `package-lock.json`. |
+| Stage                 | Result                                                                                        |
+| --------------------- | --------------------------------------------------------------------------------------------- |
+| Latest Mongoose 5     | 5.13.23 validated and committed                                                               |
+| Express 5             | 5.2.1 validated and committed                                                                 |
+| Mongoose 6            | 6.13.10 validated and committed                                                               |
+| External SDKs         | Redis removed; Multer 2.2.0, Cloudinary 2.10.0, Socket.IO 4.8.3, Twilio 6.0.2, Mailjet 6.0.11 |
+| Mongoose 7 evaluation | 7.8.11 accepted and committed                                                                 |
+| Mongoose 8 evaluation | 8.24.1 accepted                                                                               |
 
-Validation: `npm test` passes 222/222 characterization tests after the Express block and after the final
-Mongoose compatibility block. The historical audit below is retained as the original migration evidence;
-counts described as “active” there represent the pre-implementation baseline.
+All identified compatibility blockers are resolved: removed write APIs and callbacks, ObjectId
+construction, projections, immutable query handling, parser policy, async routing, write-result DTOs, and
+driver-error DTOs. `body-parser`, `express-promise-router`, Redis, and Nodemailer have been removed.
+
+The audit below is retained as historical migration evidence. Counts and version statements in the
+historical sections describe the pre-implementation baseline.
 
 ## 1. Executive summary
 
