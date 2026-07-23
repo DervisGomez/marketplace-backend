@@ -136,3 +136,12 @@ Successful runs publish the coverage report, JUnit test results, and a source pa
 
 Report vulnerabilities privately and review the supported-version and update policies in
 [SECURITY.md](./SECURITY.md). Do not publish vulnerability details in a public issue.
+
+## Observability
+
+The backend emits structured Pino logs, correlates each HTTP request with `X-Request-ID`, redacts common
+credentials, and records request duration and failures without changing API responses. Development uses
+readable output, while production emits JSON for centralized collection.
+
+See [OBSERVABILITY.md](./OBSERVABILITY.md) for configuration, log levels, correlation IDs, sensitive-data
+handling, and future Grafana, Loki, ELK, and OpenTelemetry integration.

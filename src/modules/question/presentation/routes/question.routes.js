@@ -1,22 +1,21 @@
-let express = require('express'),
-    router = require('express-promise-router')(),
+let router = require('../../../../infrastructure/http/createRouter')(),
     ctrl = require('../controllers/question.controller');
 let Auth = require('../../../../../middlewares/auth');
 
-router.post('/',Auth,ctrl.new);
+router.post('/', Auth, ctrl.new);
 
-router.post('/answer',Auth,ctrl.answer);
+router.post('/answer', Auth, ctrl.answer);
 
-router.get('/',ctrl.product);
+router.get('/', ctrl.product);
 
-router.get('/me',Auth,ctrl.user);
+router.get('/me', Auth, ctrl.user);
 
-router.get('/me/client',Auth,ctrl.client);
+router.get('/me/client', Auth, ctrl.client);
 
-router.get('/client',ctrl.productClient);
+router.get('/client', ctrl.productClient);
 
-router.delete('/',Auth,ctrl.delete);
+router.delete('/', Auth, ctrl.delete);
 
-router.delete('/lock',Auth,ctrl.lock);
+router.delete('/lock', Auth, ctrl.lock);
 
 module.exports = router;

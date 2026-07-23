@@ -1,14 +1,13 @@
-let express = require('express'),
-    router = require('express-promise-router')(),
-    ctrl =  require('./accountCtrl');
+let router = require('../infrastructure/http/createRouter')(),
+    ctrl = require('./accountCtrl');
 let Auth = require('../../middlewares/auth');
 
-router.get('/',Auth,ctrl.list);
+router.get('/', Auth, ctrl.list);
 
-router.post('/',Auth,ctrl.add);
+router.post('/', Auth, ctrl.add);
 
-router.put('/',Auth,ctrl.edit);
+router.put('/', Auth, ctrl.edit);
 
-router.delete('/',Auth,ctrl.remove);
+router.delete('/', Auth, ctrl.remove);
 
 module.exports = router;

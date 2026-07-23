@@ -1,5 +1,4 @@
-let express = require('express');
-let	router = require('express-promise-router')();
+let router = require('./infrastructure/http/createRouter')();
 let userRouter = require('./user/userRouter');
 let categoryRouter = require('./category/categoryRouter');
 let productRouter = require('./product/productRouter');
@@ -19,10 +18,10 @@ router.use('/question', questionRouter);
 router.use('/denounce', denounceRouter);
 router.use('/notification', notificationRouter);
 router.use('/buy', buyRouter);
-router.use('/bank',bankRouter);
-router.use('/account',accountRouter);
-router.use('/invest',investRouter);
-router.use('/chat',chatRouter);
+router.use('/bank', bankRouter);
+router.use('/account', accountRouter);
+router.use('/invest', investRouter);
+router.use('/chat', chatRouter);
 
 router.get('/', (req, res, next) => {
     res.send('api MLOLX las rutas de los end point deben seguir la regla :  /api/url');

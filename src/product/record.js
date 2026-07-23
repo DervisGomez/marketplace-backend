@@ -1,173 +1,370 @@
+const logger = require('../infrastructure/logging/logger');
 // TODO(v2): Move to Reputation Module.
 // Encapsulado por LegacyReputationGateway; no modificar esta lógica durante
 // la modernización estructural de Product.
 let Buy = require('../buy/buySchema');
 let Account = require('../account/accountSchema');
 
-let Role =[    
-    {id:8,name:'Vendedor profesional',count:250,money:100000000,gain:6,max:2000000,official:8,highlight:10,highlightGain:8,color:'goldenrod',bank:1},
-    {id:7,name:'Vendedor estrella',count:200,money:50000000,gain:6,max:1000000,official:8,highlight:10,highlightGain:8,color:'seagreen',bank:1},
-    {id:6,name:'Vendedor experto',count:100,money:20000000,gain:6,max:500000,official:8,highlight:10,highlightGain:8,color:'limegreen',bank:1},
-    {id:5,name:'Vendedor distingido',count:50,money:5000000,gain:6,max:200000,official:8,highlight:10,highlightGain:8,color:'turquoise',bank:1},
-    {id:4,name:'Vendedor destacado',count:20,money:1000000,gain:7,max:50000,official:8,highlight:10,highlightGain:9,color:'blue',bank:1},
-    {id:3,name:'Vendedor novato',count:10,money:200000,gain:8,max:0,official:8,highlight:10,highlightGain:10,color:'darkorchid',bank:0},
-    {id:2,name:'Vendedor principiante',count:2,money:0,gain:8,max:0,official:8,highlight:10,highlightGain:10,color:'fuchsia',bank:0},
-    {id:1,name:'Vendedor nuevo',count:0,money:0,gain:8,max:0,official:8,highlight:10,highlightGain:10,color:'black',bank:0}
-]
+let Role = [
+    {
+        id: 8,
+        name: 'Vendedor profesional',
+        count: 250,
+        money: 100000000,
+        gain: 6,
+        max: 2000000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'goldenrod',
+        bank: 1
+    },
+    {
+        id: 7,
+        name: 'Vendedor estrella',
+        count: 200,
+        money: 50000000,
+        gain: 6,
+        max: 1000000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'seagreen',
+        bank: 1
+    },
+    {
+        id: 6,
+        name: 'Vendedor experto',
+        count: 100,
+        money: 20000000,
+        gain: 6,
+        max: 500000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'limegreen',
+        bank: 1
+    },
+    {
+        id: 5,
+        name: 'Vendedor distingido',
+        count: 50,
+        money: 5000000,
+        gain: 6,
+        max: 200000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'turquoise',
+        bank: 1
+    },
+    {
+        id: 4,
+        name: 'Vendedor destacado',
+        count: 20,
+        money: 1000000,
+        gain: 7,
+        max: 50000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 9,
+        color: 'blue',
+        bank: 1
+    },
+    {
+        id: 3,
+        name: 'Vendedor novato',
+        count: 10,
+        money: 200000,
+        gain: 8,
+        max: 0,
+        official: 8,
+        highlight: 10,
+        highlightGain: 10,
+        color: 'darkorchid',
+        bank: 0
+    },
+    {
+        id: 2,
+        name: 'Vendedor principiante',
+        count: 2,
+        money: 0,
+        gain: 8,
+        max: 0,
+        official: 8,
+        highlight: 10,
+        highlightGain: 10,
+        color: 'fuchsia',
+        bank: 0
+    },
+    {
+        id: 1,
+        name: 'Vendedor nuevo',
+        count: 0,
+        money: 0,
+        gain: 8,
+        max: 0,
+        official: 8,
+        highlight: 10,
+        highlightGain: 10,
+        color: 'black',
+        bank: 0
+    }
+];
 
-let RoleBuyer =[    
-    {id:8,name:'Comprador profesional',count:250,money:100000000,gain:6,max:2000000,official:8,highlight:10,highlightGain:8,color:'goldenrod',bank:1},
-    {id:7,name:'Comprador estrella',count:200,money:50000000,gain:6,max:1000000,official:8,highlight:10,highlightGain:8,color:'seagreen',bank:1},
-    {id:6,name:'Comprador experto',count:100,money:20000000,gain:6,max:500000,official:8,highlight:10,highlightGain:8,color:'limegreen',bank:1},
-    {id:5,name:'Comprador distingido',count:50,money:5000000,gain:6,max:200000,official:8,highlight:10,highlightGain:8,color:'turquoise',bank:1},
-    {id:4,name:'Comprador destacado',count:20,money:1000000,gain:7,max:50000,official:8,highlight:10,highlightGain:9,color:'blue',bank:1},
-    {id:3,name:'Comprador novato',count:5,money:200000,gain:8,max:0,official:8,highlight:10,highlightGain:10,color:'darkorchid',bank:0},
-    {id:2,name:'Comprador principiante',count:2,money:0,gain:8,max:0,official:8,highlight:10,highlightGain:10,color:'fuchsia',bank:0},
-    {id:1,name:'Comprador nuevo',count:0,money:0,gain:8,max:0,official:8,highlight:10,highlightGain:10,color:'black',bank:0}
-]
+let RoleBuyer = [
+    {
+        id: 8,
+        name: 'Comprador profesional',
+        count: 250,
+        money: 100000000,
+        gain: 6,
+        max: 2000000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'goldenrod',
+        bank: 1
+    },
+    {
+        id: 7,
+        name: 'Comprador estrella',
+        count: 200,
+        money: 50000000,
+        gain: 6,
+        max: 1000000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'seagreen',
+        bank: 1
+    },
+    {
+        id: 6,
+        name: 'Comprador experto',
+        count: 100,
+        money: 20000000,
+        gain: 6,
+        max: 500000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'limegreen',
+        bank: 1
+    },
+    {
+        id: 5,
+        name: 'Comprador distingido',
+        count: 50,
+        money: 5000000,
+        gain: 6,
+        max: 200000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 8,
+        color: 'turquoise',
+        bank: 1
+    },
+    {
+        id: 4,
+        name: 'Comprador destacado',
+        count: 20,
+        money: 1000000,
+        gain: 7,
+        max: 50000,
+        official: 8,
+        highlight: 10,
+        highlightGain: 9,
+        color: 'blue',
+        bank: 1
+    },
+    {
+        id: 3,
+        name: 'Comprador novato',
+        count: 5,
+        money: 200000,
+        gain: 8,
+        max: 0,
+        official: 8,
+        highlight: 10,
+        highlightGain: 10,
+        color: 'darkorchid',
+        bank: 0
+    },
+    {
+        id: 2,
+        name: 'Comprador principiante',
+        count: 2,
+        money: 0,
+        gain: 8,
+        max: 0,
+        official: 8,
+        highlight: 10,
+        highlightGain: 10,
+        color: 'fuchsia',
+        bank: 0
+    },
+    {
+        id: 1,
+        name: 'Comprador nuevo',
+        count: 0,
+        money: 0,
+        gain: 8,
+        max: 0,
+        official: 8,
+        highlight: 10,
+        highlightGain: 10,
+        color: 'black',
+        bank: 0
+    }
+];
 
 module.exports = {
-    calculate2: async(id) => {
+    calculate2: async id => {
         try {
             let dateA = new Date();
             let dateB = new Date();
-            dateB.setMonth(dateB.getMonth()-1);
-            console.log(dateA,dateB,id)
-            let group = { type: "$qualifySeller" }; 
-            let match = {user:id, qualifySeller:'positive', createdAt:{ $gt: dateB, $lt: dateA }};
+            dateB.setMonth(dateB.getMonth() - 1);
+            logger.debug(dateA, dateB, id);
+            let group = { type: '$qualifySeller' };
+            let match = { user: id, qualifySeller: 'positive', createdAt: { $gt: dateB, $lt: dateA } };
             let sales = await Buy.aggregate([
-                { $match : match },
-                { $group: { _id: group, count: { $sum: 1 }, total:{ $sum: '$total'} } }
+                { $match: match },
+                { $group: { _id: group, count: { $sum: 1 }, total: { $sum: '$total' } } }
             ]);
-            console.log(sales);
-            if(sales.length>0){
-                let bank = await Account.countDocuments({user:id});
+            logger.debug(sales);
+            if (sales.length > 0) {
+                let bank = await Account.countDocuments({ user: id });
                 for (let i = 0; i < Role.length; i++) {
-                    if(sales[0].count >= Role[i].count && sales[0].total >= Role[i].money && bank >= Role[i].bank){
-                        console.log('si')
+                    if (sales[0].count >= Role[i].count && sales[0].total >= Role[i].money && bank >= Role[i].bank) {
+                        logger.debug('si');
                         return Role[i];
-                    }                
+                    }
                 }
-            }          
-            
-            return Role[Role.length-1]
+            }
+
+            return Role[Role.length - 1];
         } catch (error) {
-            console.log(error)
+            logger.error({ err: error }, 'Legacy operation failed');
             return {};
-        }        
+        }
     },
-    info2: async(id) => {
+    info2: async id => {
         try {
             let info = {};
             let dateA = new Date();
             let dateB = new Date();
-            dateB.setMonth(dateB.getMonth()-1);
-            console.log(dateA,dateB,id)
-            let group = { type: "$qualifySeller" }; 
-            let match = {user:id, qualifySeller:'positive', createdAt:{ $gt: dateB, $lt: dateA }};
+            dateB.setMonth(dateB.getMonth() - 1);
+            logger.debug(dateA, dateB, id);
+            let group = { type: '$qualifySeller' };
+            let match = { user: id, qualifySeller: 'positive', createdAt: { $gt: dateB, $lt: dateA } };
             let sales = await Buy.aggregate([
-                { $match : match },
-                { $group: { _id: group, count: { $sum: 1 }, total:{ $sum: '$total'} } }
-            ]);            
-            console.log(sales);
-            info.bank = await Account.countDocuments({user:id});
-            if(sales.length>0){
+                { $match: match },
+                { $group: { _id: group, count: { $sum: 1 }, total: { $sum: '$total' } } }
+            ]);
+            logger.debug(sales);
+            info.bank = await Account.countDocuments({ user: id });
+            if (sales.length > 0) {
                 info.count = sales[0].count;
                 info.total = sales[0].total;
-                info.category ={};
+                info.category = {};
                 info.categoryNext = null;
                 for (let i = 0; i < Role.length; i++) {
-                    if(sales[0].count >= Role[i].count && sales[0].total >= Role[i].money && info.bank >= Role[i].bank){
-                        console.log('si')
+                    if (
+                        sales[0].count >= Role[i].count &&
+                        sales[0].total >= Role[i].money &&
+                        info.bank >= Role[i].bank
+                    ) {
+                        logger.debug('si');
                         info.category = Role[i];
                         return info;
-                    }else{
+                    } else {
                         info.categoryNext = Role[i];
                     }
                 }
             }
             info.count = 0;
-            info.total = 0;  
-            info.category = Role[Role.length-1]
-            info.categoryNext = Role[Role.length-2]
+            info.total = 0;
+            info.category = Role[Role.length - 1];
+            info.categoryNext = Role[Role.length - 2];
             return info;
         } catch (error) {
-            console.log(error)
+            logger.error({ err: error }, 'Legacy operation failed');
             return {};
-        }        
+        }
     },
-    infoBuyer: async(id) => {
+    infoBuyer: async id => {
         try {
             let info = {};
             let dateA = new Date();
             let dateB = new Date();
-            dateB.setMonth(dateB.getMonth()-1);
-            console.log(dateA,dateB,id)
+            dateB.setMonth(dateB.getMonth() - 1);
+            logger.debug(dateA, dateB, id);
 
-            let group = { type: "$qualifyBuyer" }; 
-            let match = { buyer:id, qualifyBuyer:'positive'/*, createdAt:{ $gt: dateB, $lt: dateA }*/};
+            let group = { type: '$qualifyBuyer' };
+            let match = { buyer: id, qualifyBuyer: 'positive' /*, createdAt:{ $gt: dateB, $lt: dateA }*/ };
             let sales = await Buy.aggregate([
-                { $match : match },
-                { $group: { _id: group, count: { $sum: 1 }, total:{ $sum: '$total'} } }
-            ]);            
-            console.log(sales);
+                { $match: match },
+                { $group: { _id: group, count: { $sum: 1 }, total: { $sum: '$total' } } }
+            ]);
+            logger.debug(sales);
             //info.bank = await Account.countDocuments({user:id});
-            if(sales.length>0){
+            if (sales.length > 0) {
                 info.count = sales[0].count;
                 info.total = sales[0].total;
-                info.category ={};
+                info.category = {};
                 info.categoryNext = null;
                 for (let i = 0; i < RoleBuyer.length; i++) {
-                    if(sales[0].count >= RoleBuyer[i].count ){
-                        console.log('si')
+                    if (sales[0].count >= RoleBuyer[i].count) {
+                        logger.debug('si');
                         info.category = RoleBuyer[i];
                         return info;
-                    }else{
+                    } else {
                         info.categoryNext = RoleBuyer[i];
                     }
                 }
             }
             info.count = 0;
-            info.total = 0;  
-            info.category = RoleBuyer[RoleBuyer.length-1]
-            info.categoryNext = RoleBuyer[RoleBuyer.length-2]
+            info.total = 0;
+            info.category = RoleBuyer[RoleBuyer.length - 1];
+            info.categoryNext = RoleBuyer[RoleBuyer.length - 2];
             return info;
         } catch (error) {
-            console.log(error)
+            logger.error({ err: error }, 'Legacy operation failed');
             return {};
-        }        
+        }
     },
-    calculateBuyer: async(id) => {
+    calculateBuyer: async id => {
         try {
             let dateA = new Date();
             let dateB = new Date();
-            dateB.setMonth(dateB.getMonth()-1);
-            console.log(dateA,dateB,id)
+            dateB.setMonth(dateB.getMonth() - 1);
+            logger.debug(dateA, dateB, id);
 
-            let group = { type: "$qualifyBuyer" }; 
-        let match = {user:id, qualifyBuyer:'positive'/*, createdAt:{ $gt: dateB, $lt: dateA }*/};
+            let group = { type: '$qualifyBuyer' };
+            let match = { user: id, qualifyBuyer: 'positive' /*, createdAt:{ $gt: dateB, $lt: dateA }*/ };
             let sales = await Buy.aggregate([
-                { $match : match },
-                { $group: { _id: group, count: { $sum: 1 }, total:{ $sum: '$total'} } }
+                { $match: match },
+                { $group: { _id: group, count: { $sum: 1 }, total: { $sum: '$total' } } }
             ]);
-            console.log(sales);
-            if(sales.length>0){
-                let bank = await Account.countDocuments({user:id});
+            logger.debug(sales);
+            if (sales.length > 0) {
+                let bank = await Account.countDocuments({ user: id });
                 for (let i = 0; i < RoleBuyer.length; i++) {
-                    if(sales[0].count >= RoleBuyer[i].count){
-                        console.log('si')
+                    if (sales[0].count >= RoleBuyer[i].count) {
+                        logger.debug('si');
                         return RoleBuyer[i];
-                    }                
+                    }
                 }
-            }          
-            
-            return RoleBuyer[RoleBuyer.length-1]
+            }
+
+            return RoleBuyer[RoleBuyer.length - 1];
         } catch (error) {
-            console.log(error)
+            logger.error({ err: error }, 'Legacy operation failed');
             return {};
-        }        
+        }
     },
-    calculate: async(id) => {
+    calculate: async id => {
         try {
             let info = {};
             let info2 = {};
@@ -178,15 +375,15 @@ module.exports = {
             dateB.setHours(0);
             dateB.setMinutes(0);
             dateB.setSeconds(0);
-            console.log('Mes actual',dateA,dateB,id)
+            logger.debug('Mes actual', dateA, dateB, id);
 
-            let group = { type: "$qualifySeller" }; 
-            let match = {user:id, qualifySeller:'positive', createdAt:{ $gt: dateB, $lt: dateA }};
+            let group = { type: '$qualifySeller' };
+            let match = { user: id, qualifySeller: 'positive', createdAt: { $gt: dateB, $lt: dateA } };
             let sales = await Buy.aggregate([
-                { $match : match },
-                { $group: { _id: group, count: { $sum: 1 }, total:{ $sum: '$total'} } }
+                { $match: match },
+                { $group: { _id: group, count: { $sum: 1 }, total: { $sum: '$total' } } }
             ]);
-            console.log('Sales',sales)
+            logger.debug('Sales', sales);
 
             //Consultar mes anterior
             let dateAA = new Date();
@@ -203,78 +400,86 @@ module.exports = {
             dateBB.setSeconds(0);
             dateBB.setMonth(dateB.getMonth() - 1);
 
-            console.log('Mes anterior',dateAA,dateBB,id)
+            logger.debug('Mes anterior', dateAA, dateBB, id);
 
-            let group2 = { type: "$qualifySeller" }; 
-            let match2 = {user:id, qualifySeller:'positive', createdAt:{ $gt: dateBB, $lt: dateAA }};
+            let group2 = { type: '$qualifySeller' };
+            let match2 = { user: id, qualifySeller: 'positive', createdAt: { $gt: dateBB, $lt: dateAA } };
             let sales2 = await Buy.aggregate([
-                { $match : match2 },
-                { $group: { _id: group2, count: { $sum: 1 }, total:{ $sum: '$total'} } }
-            ]);            
-            console.log('Sales2',sales2);
+                { $match: match2 },
+                { $group: { _id: group2, count: { $sum: 1 }, total: { $sum: '$total' } } }
+            ]);
+            logger.debug('Sales2', sales2);
 
-            info.bank = await Account.countDocuments({user:id});
+            info.bank = await Account.countDocuments({ user: id });
             info2.bank = info.bank;
 
-            if(sales.length>0){
+            if (sales.length > 0) {
                 info.count = sales[0].count;
                 info.total = sales[0].total;
-                info.category ={};
+                info.category = {};
                 info.categoryNext = null;
                 for (let i = 0; i < Role.length; i++) {
-                    if(sales[0].count >= Role[i].count && sales[0].total >= Role[i].money && info.bank >= Role[i].bank){
+                    if (
+                        sales[0].count >= Role[i].count &&
+                        sales[0].total >= Role[i].money &&
+                        info.bank >= Role[i].bank
+                    ) {
                         info.category = Role[i];
-                        i = 200
+                        i = 200;
                         //return info;
-                    }else{
+                    } else {
                         info.categoryNext = Role[i];
                     }
                 }
             }
-            
-            if(sales2.length>0){
+
+            if (sales2.length > 0) {
                 info2.count = sales2[0].count;
                 info2.total = sales2[0].total;
-                info2.category ={};
+                info2.category = {};
                 info2.categoryNext = null;
                 for (let i = 0; i < Role.length; i++) {
-                    if(sales2[0].count >= Role[i].count && sales2[0].total >= Role[i].money && info2.bank >= Role[i].bank){
+                    if (
+                        sales2[0].count >= Role[i].count &&
+                        sales2[0].total >= Role[i].money &&
+                        info2.bank >= Role[i].bank
+                    ) {
                         info2.category = Role[i];
                         i = 200;
                         //return info;
-                    }else{
+                    } else {
                         info2.categoryNext = Role[i];
                     }
                 }
             }
 
-            if(info.count && info2.count){
-                if(info.category.id > info2.category.id){
+            if (info.count && info2.count) {
+                if (info.category.id > info2.category.id) {
                     return info;
-                }else{
+                } else {
                     return info2;
                 }
             }
 
-            if(info.count){
-                console.log(info.category)
+            if (info.count) {
+                logger.debug(info.category);
                 return info;
             }
 
-            if(info2.count){
-                console.log(info2.category)
+            if (info2.count) {
+                logger.debug(info2.category);
                 return info2;
             }
-            console.log(Role[Role.length-1])
-            info.category = Role[Role.length-1];
-            info.categoryNext =Role[Role.length-2];
+            logger.debug(Role[Role.length - 1]);
+            info.category = Role[Role.length - 1];
+            info.categoryNext = Role[Role.length - 2];
             return info;
         } catch (error) {
-            console.log(error)
+            logger.error({ err: error }, 'Legacy operation failed');
             return {};
-        }        
+        }
     },
-    info: async(id) => {
+    info: async id => {
         try {
             let info = {};
             let info2 = {};
@@ -285,15 +490,15 @@ module.exports = {
             dateB.setHours(0);
             dateB.setMinutes(0);
             dateB.setSeconds(0);
-            console.log('Mes actual',dateA,dateB,id)
+            logger.debug('Mes actual', dateA, dateB, id);
 
-            let group = { type: "$qualifySeller" }; 
-            let match = {user:id, qualifySeller:'positive', createdAt:{ $gt: dateB, $lt: dateA }};
+            let group = { type: '$qualifySeller' };
+            let match = { user: id, qualifySeller: 'positive', createdAt: { $gt: dateB, $lt: dateA } };
             let sales = await Buy.aggregate([
-                { $match : match },
-                { $group: { _id: group, count: { $sum: 1 }, total:{ $sum: '$total'} } }
+                { $match: match },
+                { $group: { _id: group, count: { $sum: 1 }, total: { $sum: '$total' } } }
             ]);
-            console.log('Sales',sales)
+            logger.debug('Sales', sales);
 
             //Consultar mes anterior
             let dateAA = new Date();
@@ -310,75 +515,83 @@ module.exports = {
             dateBB.setSeconds(0);
             dateBB.setMonth(dateB.getMonth() - 1);
 
-            console.log('Mes anterior',dateAA,dateBB,id)
+            logger.debug('Mes anterior', dateAA, dateBB, id);
 
-            let group2 = { type: "$qualifySeller" }; 
-            let match2 = {user:id, qualifySeller:'positive', createdAt:{ $gt: dateBB, $lt: dateAA }};
+            let group2 = { type: '$qualifySeller' };
+            let match2 = { user: id, qualifySeller: 'positive', createdAt: { $gt: dateBB, $lt: dateAA } };
             let sales2 = await Buy.aggregate([
-                { $match : match2 },
-                { $group: { _id: group2, count: { $sum: 1 }, total:{ $sum: '$total'} } }
-            ]);            
-            console.log('Sales2',sales2);
+                { $match: match2 },
+                { $group: { _id: group2, count: { $sum: 1 }, total: { $sum: '$total' } } }
+            ]);
+            logger.debug('Sales2', sales2);
 
-            info.bank = await Account.countDocuments({user:id});
+            info.bank = await Account.countDocuments({ user: id });
             info2.bank = info.bank;
 
-            if(sales.length>0){
+            if (sales.length > 0) {
                 info.count = sales[0].count;
                 info.total = sales[0].total;
-                info.category ={};
+                info.category = {};
                 info.categoryNext = null;
                 for (let i = 0; i < Role.length; i++) {
-                    if(sales[0].count >= Role[i].count && sales[0].total >= Role[i].money && info.bank >= Role[i].bank){
+                    if (
+                        sales[0].count >= Role[i].count &&
+                        sales[0].total >= Role[i].money &&
+                        info.bank >= Role[i].bank
+                    ) {
                         info.category = Role[i];
-                        i = 200
+                        i = 200;
                         //return info;
-                    }else{
+                    } else {
                         info.categoryNext = Role[i];
                     }
                 }
             }
-            
-            if(sales2.length>0){
+
+            if (sales2.length > 0) {
                 info2.count = sales2[0].count;
                 info2.total = sales2[0].total;
-                info2.category ={};
+                info2.category = {};
                 info2.categoryNext = null;
                 for (let i = 0; i < Role.length; i++) {
-                    if(sales2[0].count >= Role[i].count && sales2[0].total >= Role[i].money && info2.bank >= Role[i].bank){
+                    if (
+                        sales2[0].count >= Role[i].count &&
+                        sales2[0].total >= Role[i].money &&
+                        info2.bank >= Role[i].bank
+                    ) {
                         info2.category = Role[i];
                         i = 200;
                         //return info;
-                    }else{
+                    } else {
                         info2.categoryNext = Role[i];
                     }
                 }
             }
 
-            if(info.count && info2.count){
-                if(info.category.id > info2.category.id){
+            if (info.count && info2.count) {
+                if (info.category.id > info2.category.id) {
                     return info;
-                }else{
+                } else {
                     return info2;
                 }
             }
 
-            if(info.count){
+            if (info.count) {
                 return info;
             }
 
-            if(info2.count){
+            if (info2.count) {
                 return info2;
             }
 
             info.count = 0;
-            info.total = 0;  
-            info.category = Role[Role.length-1]
-            info.categoryNext = Role[Role.length-2]
+            info.total = 0;
+            info.category = Role[Role.length - 1];
+            info.categoryNext = Role[Role.length - 2];
             return info;
         } catch (error) {
-            console.log(error)
+            logger.error({ err: error }, 'Legacy operation failed');
             return {};
-        }        
-    },
-}
+        }
+    }
+};

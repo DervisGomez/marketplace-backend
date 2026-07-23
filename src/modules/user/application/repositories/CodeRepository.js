@@ -2,5 +2,9 @@ const CodeModel = require('../../../../user/codeSchema');
 const BaseMongoRepository = require('../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
 module.exports = BaseMongoRepository.create(CodeModel, [
-    'create', 'deleteOne', 'findById', 'findByIdAndUpdate', 'remove'
+    'create',
+    'deleteMany',
+    'deleteOne',
+    'findById',
+    'findByIdAndUpdate'
 ]);

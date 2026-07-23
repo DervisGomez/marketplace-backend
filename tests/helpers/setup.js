@@ -17,6 +17,7 @@ beforeAll(async () => {
     });
     await mongoose.connect(mongo.getUri('characterization'), {
         useCreateIndex: true,
+        useFindAndModify: false,
         useNewUrlParser: true
     });
 });

@@ -1,18 +1,17 @@
-let express = require('express'),
-    router = require('express-promise-router')(),
-    ctrl =  require('./chatCtrl');
+let router = require('../infrastructure/http/createRouter')(),
+    ctrl = require('./chatCtrl');
 let Auth = require('../../middlewares/auth');
 
-router.post('/',Auth,ctrl.newMessage);
+router.post('/', Auth, ctrl.newMessage);
 
-router.get('/',Auth,ctrl.meChat);
+router.get('/', Auth, ctrl.meChat);
 
-router.get('/admin',Auth,ctrl.list);
+router.get('/admin', Auth, ctrl.list);
 
-router.get('/find',Auth,ctrl.find);
+router.get('/find', Auth, ctrl.find);
 
-router.put('/take',Auth,ctrl.take);
+router.put('/take', Auth, ctrl.take);
 
-router.put('/end',Auth,ctrl.end);
+router.put('/end', Auth, ctrl.end);
 
 module.exports = router;

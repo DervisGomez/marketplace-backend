@@ -3,7 +3,7 @@ const PaymentModel = require('../../../../buy/paymentSchema');
 const BuyModel = require('../../../../buy/buySchema');
 const BaseMongoRepository = require('../../../../shared/infrastructure/mongoose/BaseMongoRepository');
 
-const proxy = model => BaseMongoRepository.create(model, ['aggregate', 'countDocuments', 'update']);
+const proxy = model => BaseMongoRepository.create(model, ['aggregate', 'countDocuments', 'updateMany', 'updateOne']);
 
 module.exports = {
     Product: proxy(ProductModel),

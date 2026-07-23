@@ -18,6 +18,8 @@ The format is based on [Keep a Changelog](https://keepachangelog.com/en/1.1.0/),
 - CodeQL scanning for pull requests, pushes to `main`, and weekly analysis.
 - Weekly Dependabot configuration for npm and GitHub Actions.
 - Informational npm audit reports and repository security policy.
+- Structured Pino application and HTTP logging with correlation IDs and centralized error logging.
+- Sensitive-field redaction and observability integration guidance.
 
 ## [1.0.0] - 2026-07-22
 
